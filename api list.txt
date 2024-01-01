@@ -1,0 +1,27 @@
+POST: 	/user/signup
+POST: 	/user/login
+POST: 	/user/update
+------------------------------------
+POST: 	/role/add
+------------------------------------
+POST: 	/category/add
+POST: 	/category/update
+DELETE: /category/remove
+GET: 	/category/getCategoryDetails
+GET:    /getAllProductsOfCategory/:categoryID
+------------------------------------
+POST:	/product/add
+POST: 	/product/update
+POST: 	/product/addPriceQuantity
+POST: 	/product/addProductImages
+DELETE: /product/remove
+GET: 	/product/getAllProducts
+GET: 	/product/getProductDetails
+------------------------------------
+POST: 	/status/add
+POST: 	/status/update
+------------------------------------
+POST: 	/review/add
+
+
+product/category/price/seller

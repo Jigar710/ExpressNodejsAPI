@@ -1,0 +1,2836 @@
+openapi: 3.0.3
+info:
+  title: Structured Node Project Documentation
+  description: ''
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3003'
+paths:
+  /user/signup:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message:
+                    - '"email" must be a valid email'
+                    - mobile number is required
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  description: first name of user.
+                  example: testrfirstuser
+                lastName:
+                  type: string
+                  description: last name of user.
+                  example: testlastname
+                username:
+                  type: string
+                  description: user name of user.
+                  example: testusername
+                email:
+                  type: string
+                  description: email of user.
+                  example: testemail
+                password:
+                  type: string
+                  description: password of authentication.
+                  example: testpassword@123
+                confirm_password:
+                  type: string
+                  description: confirm password for confirmation.
+                  example: testpassword@123
+                role:
+                  type: string
+                  description: role of user.
+                  example: Customer
+              required:
+                - firstName
+                - lastName
+                - username
+                - email
+                - password
+                - confirm_password
+                - role
+        required: true
+      security: []
+  /user/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: unauthorized
+                  statusCode: 401
+                  isSuccess: false
+                  message: Invalid credentials
+                  data: null
+                  error: null
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: user name of user.
+                  example: testusername
+                password:
+                  type: string
+                  description: password.
+                  example: testpassword
+              required:
+                - username
+                - password
+        required: true
+      security: []
+  /user/mobileEntry:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: successfully otp send
+                  data:
+                    otp: '7977'
+                  error: null
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                mobileNo:
+                  type: string
+                  description: mobile number of user.
+                  example: '+918000711872'
+              required:
+                - mobileNo
+        required: true
+      security: []
+  /user/change:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  description: first name of user.
+                  example: testrfirstuser
+                lastName:
+                  type: string
+                  description: last name of user.
+                  example: testlastname
+                username:
+                  type: string
+                  description: user name of user.
+                  example: testusername
+                email:
+                  type: string
+                  description: email of user.
+                  example: testemail
+              required:
+                - firstName
+                - lastName
+                - username
+                - email
+        required: true
+      security: []
+  /user/update:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message:
+                    - id is required
+                    - '"email" must be a valid email'
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: user name of user.
+                  example: testusername
+                email:
+                  type: string
+                  description: email of user.
+                  example: testemail
+              required:
+                - username
+                - email
+        required: true
+      security: []
+  /role/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: 'Admin, Customer, Seller'
+        required: false
+      security: []
+  /category/add:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: name of category.
+                  example: food
+                small_desc:
+                  type: string
+                  description: small description of category.
+                  example: amet
+                long_desc:
+                  type: string
+                  description: long description of category
+                  example: est
+                image:
+                  type: image
+                  description: this is file.
+                  example: voluptates
+              required:
+                - name
+                - small_desc
+                - long_desc
+                - image
+        required: true
+      security: []
+  /category/update:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: id of category
+                  example: 78196526-7254-4abc-a101-7bc2ba6ba89c
+                name:
+                  type: string
+                  description: name of category.
+                  example: food
+                small_desc:
+                  type: string
+                  description: small description of category.
+                  example: occaecati
+                long_desc:
+                  type: string
+                  description: long description of category
+                  example: vel
+                image:
+                  type: string
+                  description: this is file.
+                  example: explicabo
+              required:
+                - id
+                - name
+                - small_desc
+                - long_desc
+                - image
+        required: true
+      security: []
+  '/category/getDetails/:categoryID':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /category/getAllcategories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/category/getAllProducts/:categoryID':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/category/delete/:categoryID':
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /product/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: name of product.
+                  example: food
+                small_desc:
+                  type: string
+                  description: small description of product.
+                  example: atque
+                long_desc:
+                  type: string
+                  description: long description of product
+                  example: incidunt
+                image:
+                  type: string
+                  description: this is file.
+                  example: numquam
+                status_id:
+                  type: uuid
+                  description: ''
+                  example: tenetur
+                categories:
+                  type: string
+                  description: you can provide multiple categories too.
+                  example: >-
+                    c30af3d1-d6b8-4a90-b58e-49e124431f71,d30af3d1-d8b8-4a90-b58e-49e12551f71
+              required:
+                - name
+                - small_desc
+                - long_desc
+                - image
+                - status_id
+                - categories
+        required: true
+      security: []
+  /product/update:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: uuid
+                  description: ID of product
+                  example: quo
+                name:
+                  type: string
+                  description: name of Product.
+                  example: food
+                small_desc:
+                  type: string
+                  description: small description of product.
+                  example: id
+                long_desc:
+                  type: string
+                  description: long description of product
+                  example: molestiae
+                image:
+                  type: image
+                  description: this is file.
+                  example: sit
+                status_id:
+                  type: uuid
+                  description: ''
+                  example: ea
+              required:
+                - id
+                - name
+                - small_desc
+                - long_desc
+                - image
+                - status_id
+        required: true
+      security: []
+  '/product/getDetails/:productId':
+    get:
+      summary: null
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/product/delete/:productID':
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /product/getAll:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /product/addPriceQuantity:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: uuid
+                  description: ''
+                  example: provident
+                product_id:
+                  type: uuid
+                  description: ''
+                  example: quibusdam
+                price:
+                  type: number
+                  description: ''
+                  example: 77374
+                quantity:
+                  type: number
+                  description: ''
+                  example: 68418
+                brand:
+                  type: string
+                  description: ''
+                  example: in
+              required:
+                - user_id
+                - product_id
+                - price
+                - quantity
+                - brand
+        required: true
+      security: []
+  /product/addImages:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: uuid
+                  description: ''
+                  example: sapiente
+                images:
+                  type: image
+                  description: other images of product
+                  example: sunt
+              required:
+                - product_id
+                - images
+        required: true
+      security: []
+  /product/updateSpecs:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: uuid
+                  description: product seller id
+                  example: beatae
+                product_id:
+                  type: uuid
+                  description: id of product
+                  example: aut
+                price:
+                  type: number
+                  description: new price of product
+                  example: 84557
+              required:
+                - id
+                - product_id
+                - price
+        required: true
+      security: []
+  /product/filter:
+    get:
+      summary: null
+      description: ''
+      parameters:
+        - in: query
+          name: name
+          description: Category's Name
+          example: natus
+          required: false
+          schema:
+            type: string
+            description: Category's Name
+            example: natus
+        - in: query
+          name: seller
+          description: name of seller brand
+          example: aut
+          required: false
+          schema:
+            type: string
+            description: name of seller brand
+            example: aut
+        - in: query
+          name: sortBy
+          description: ''
+          example: 'price-desc, price-asc, oldest, newest'
+          required: false
+          schema:
+            type: string
+            description: ''
+            example: 'price-desc, price-asc, oldest, newest'
+        - in: query
+          name: minPrice
+          description: ''
+          example: 10483
+          required: false
+          schema:
+            type: number
+            description: ''
+            example: 10483
+        - in: query
+          name: maxPrice
+          description: ''
+          example: 10676
+          required: false
+          schema:
+            type: number
+            description: ''
+            example: 10676
+        - in: query
+          name: limit
+          description: ''
+          example: 14048
+          required: false
+          schema:
+            type: number
+            description: ''
+            example: 14048
+        - in: query
+          name: page
+          description: ''
+          example: 2755
+          required: false
+          schema:
+            type: number
+            description: ''
+            example: 2755
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 500
+                  isSuccess: false
+                  message: Internal server error
+                  data: null
+                  error:
+                    name: SequelizeDatabaseError
+                    parent:
+                      code: ER_BAD_FIELD_ERROR
+                      errno: 1054
+                      sqlState: 42S22
+                      sqlMessage: >-
+                        Unknown column 'ProductCategories.category_id' in 'on
+                        clause'
+                      sql: >-
+                        SELECT `Product`.*, `ProductPriceBySellers`.`id` AS
+                        `ProductPriceBySellers.id`,
+                        `ProductPriceBySellers`.`price` AS
+                        `ProductPriceBySellers.price`,
+                        `ProductPriceBySellers`.`brand` AS
+                        `ProductPriceBySellers.brand` FROM (SELECT
+                        `Product`.`id`, `Product`.`product_code`,
+                        `Product`.`name`, `Product`.`image`,
+                        `Product`.`small_desc`, `Product`.`long_desc`,
+                        `Product`.`slug`, `Product`.`status_id`,
+                        `Product`.`createdAt`, `Product`.`updatedAt` FROM
+                        `Products` AS `Product` INNER JOIN `Categories` AS
+                        `ProductCategories->Category` ON
+                        `ProductCategories`.`category_id` =
+                        `ProductCategories->Category`.`id` AND
+                        `ProductCategories->Category`.`slug` = 'natus' WHERE (
+                        SELECT `ProductCategories`.`product_id` FROM
+                        `ProductCategories` AS `ProductCategories` INNER JOIN
+                        `Categories` AS `Category` ON
+                        `ProductCategories`.`category_id` = `Category`.`id` AND
+                        `Category`.`slug` = 'natus' WHERE
+                        (`ProductCategories`.`product_id` = `Product`.`id`)
+                        LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM
+                        `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE
+                        (((`ProductPriceBySellers`.`price` >= '10483' AND
+                        `ProductPriceBySellers`.`price` <= '10676') AND
+                        `ProductPriceBySellers`.`brand` = 'aut') AND
+                        `ProductPriceBySellers`.`product_id` = `Product`.`id`)
+                        LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS
+                        `Product` INNER JOIN `ProductCategories` AS
+                        `ProductCategories` ON `Product`.`id` =
+                        `ProductCategories`.`product_id` INNER JOIN
+                        `ProductPriceBySellers` AS `ProductPriceBySellers` ON
+                        `Product`.`id` = `ProductPriceBySellers`.`product_id`
+                        AND (`ProductPriceBySellers`.`price` >= '10483' AND
+                        `ProductPriceBySellers`.`price` <= '10676') AND
+                        `ProductPriceBySellers`.`brand` = 'aut';
+                    original:
+                      code: ER_BAD_FIELD_ERROR
+                      errno: 1054
+                      sqlState: 42S22
+                      sqlMessage: >-
+                        Unknown column 'ProductCategories.category_id' in 'on
+                        clause'
+                      sql: >-
+                        SELECT `Product`.*, `ProductPriceBySellers`.`id` AS
+                        `ProductPriceBySellers.id`,
+                        `ProductPriceBySellers`.`price` AS
+                        `ProductPriceBySellers.price`,
+                        `ProductPriceBySellers`.`brand` AS
+                        `ProductPriceBySellers.brand` FROM (SELECT
+                        `Product`.`id`, `Product`.`product_code`,
+                        `Product`.`name`, `Product`.`image`,
+                        `Product`.`small_desc`, `Product`.`long_desc`,
+                        `Product`.`slug`, `Product`.`status_id`,
+                        `Product`.`createdAt`, `Product`.`updatedAt` FROM
+                        `Products` AS `Product` INNER JOIN `Categories` AS
+                        `ProductCategories->Category` ON
+                        `ProductCategories`.`category_id` =
+                        `ProductCategories->Category`.`id` AND
+                        `ProductCategories->Category`.`slug` = 'natus' WHERE (
+                        SELECT `ProductCategories`.`product_id` FROM
+                        `ProductCategories` AS `ProductCategories` INNER JOIN
+                        `Categories` AS `Category` ON
+                        `ProductCategories`.`category_id` = `Category`.`id` AND
+                        `Category`.`slug` = 'natus' WHERE
+                        (`ProductCategories`.`product_id` = `Product`.`id`)
+                        LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM
+                        `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE
+                        (((`ProductPriceBySellers`.`price` >= '10483' AND
+                        `ProductPriceBySellers`.`price` <= '10676') AND
+                        `ProductPriceBySellers`.`brand` = 'aut') AND
+                        `ProductPriceBySellers`.`product_id` = `Product`.`id`)
+                        LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS
+                        `Product` INNER JOIN `ProductCategories` AS
+                        `ProductCategories` ON `Product`.`id` =
+                        `ProductCategories`.`product_id` INNER JOIN
+                        `ProductPriceBySellers` AS `ProductPriceBySellers` ON
+                        `Product`.`id` = `ProductPriceBySellers`.`product_id`
+                        AND (`ProductPriceBySellers`.`price` >= '10483' AND
+                        `ProductPriceBySellers`.`price` <= '10676') AND
+                        `ProductPriceBySellers`.`brand` = 'aut';
+                    sql: >-
+                      SELECT `Product`.*, `ProductPriceBySellers`.`id` AS
+                      `ProductPriceBySellers.id`,
+                      `ProductPriceBySellers`.`price` AS
+                      `ProductPriceBySellers.price`,
+                      `ProductPriceBySellers`.`brand` AS
+                      `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`,
+                      `Product`.`product_code`, `Product`.`name`,
+                      `Product`.`image`, `Product`.`small_desc`,
+                      `Product`.`long_desc`, `Product`.`slug`,
+                      `Product`.`status_id`, `Product`.`createdAt`,
+                      `Product`.`updatedAt` FROM `Products` AS `Product` INNER
+                      JOIN `Categories` AS `ProductCategories->Category` ON
+                      `ProductCategories`.`category_id` =
+                      `ProductCategories->Category`.`id` AND
+                      `ProductCategories->Category`.`slug` = 'natus' WHERE (
+                      SELECT `ProductCategories`.`product_id` FROM
+                      `ProductCategories` AS `ProductCategories` INNER JOIN
+                      `Categories` AS `Category` ON
+                      `ProductCategories`.`category_id` = `Category`.`id` AND
+                      `Category`.`slug` = 'natus' WHERE
+                      (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT
+                      1 ) IS NOT NULL AND ( SELECT `product_id` FROM
+                      `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE
+                      (((`ProductPriceBySellers`.`price` >= '10483' AND
+                      `ProductPriceBySellers`.`price` <= '10676') AND
+                      `ProductPriceBySellers`.`brand` = 'aut') AND
+                      `ProductPriceBySellers`.`product_id` = `Product`.`id`)
+                      LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product`
+                      INNER JOIN `ProductCategories` AS `ProductCategories` ON
+                      `Product`.`id` = `ProductCategories`.`product_id` INNER
+                      JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON
+                      `Product`.`id` = `ProductPriceBySellers`.`product_id` AND
+                      (`ProductPriceBySellers`.`price` >= '10483' AND
+                      `ProductPriceBySellers`.`price` <= '10676') AND
+                      `ProductPriceBySellers`.`brand` = 'aut';
+                    parameters: {}
+                properties: {}
+      tags: []
+      security: []
+  /product/search:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 500
+                  isSuccess: false
+                  message: Internal server error
+                  data: null
+                  error: {}
+                properties: {}
+      tags: []
+      security: []
+  /product/suggestions:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: query
+          name: name
+          description: searching word
+          example: corporis
+          required: false
+          schema:
+            type: string
+            description: searching word
+            example: corporis
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: suggestions
+                  data: []
+                  error: null
+                properties: {}
+      tags: []
+      security: []
+  /status/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of status
+                  example: necessitatibus
+              required:
+                - name
+        required: true
+      security: []
+  /status/update:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: uuid
+                  description: ''
+                  example: molestiae
+                name:
+                  type: string
+                  description: Name of status
+                  example: assumenda
+              required:
+                - id
+                - name
+        required: true
+      security: []
+  /status/changeStatus:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: uuid
+                  description: ''
+                  example: ut
+                status:
+                  type: number
+                  description: Number of status
+                  example: 33868
+              required:
+                - userId
+                - status
+        required: true
+      security: []
+  /status/getAll:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: successfully getting all statuses
+                  data:
+                    - id: 046d34a5-415d-49ad-b57d-12338f3a1058
+                      name: null
+                      createdAt: '2022-06-14T05:02:08.000Z'
+                      updatedAt: '2022-06-14T05:02:08.000Z'
+                    - id: 0760fa17-a491-43c1-a032-c954441e4954
+                      name: null
+                      createdAt: '2022-06-14T04:54:48.000Z'
+                      updatedAt: '2022-06-14T04:54:48.000Z'
+                    - id: 09976a28-52b4-4e9c-9c7a-f4e4438715e3
+                      name: null
+                      createdAt: '2022-06-14T04:47:56.000Z'
+                      updatedAt: '2022-06-14T04:47:56.000Z'
+                    - id: 0cf1b8e9-f73d-4373-8dd4-4166a604a566
+                      name: null
+                      createdAt: '2022-06-14T05:14:24.000Z'
+                      updatedAt: '2022-06-14T05:14:24.000Z'
+                    - id: 22203aa3-8450-483f-85a3-ba3ae1c1cb3c
+                      name: Sold out
+                      createdAt: '2022-06-14T04:24:42.000Z'
+                      updatedAt: '2022-06-14T04:24:42.000Z'
+                    - id: 298cee5e-cf85-4083-8201-66e1913531fe
+                      name: null
+                      createdAt: '2022-06-14T04:43:20.000Z'
+                      updatedAt: '2022-06-14T04:43:20.000Z'
+                    - id: 2eb81056-964d-460a-bc16-143735f1deda
+                      name: null
+                      createdAt: '2022-06-14T05:44:22.000Z'
+                      updatedAt: '2022-06-14T05:44:22.000Z'
+                    - id: 3557e2b4-b051-4c7e-8036-60ddf6b9143b
+                      name: null
+                      createdAt: '2022-06-14T06:04:06.000Z'
+                      updatedAt: '2022-06-14T06:04:06.000Z'
+                    - id: 3a8c1827-5e5b-4c00-aab3-a1022f6454f9
+                      name: null
+                      createdAt: '2022-06-14T05:09:46.000Z'
+                      updatedAt: '2022-06-14T05:09:46.000Z'
+                    - id: 5b81e4f6-98b0-459c-a0b1-1a5ba5bc5a18
+                      name: quo
+                      createdAt: '2022-06-14T06:30:50.000Z'
+                      updatedAt: '2022-06-14T06:30:50.000Z'
+                    - id: 6bccdb5b-d74f-480e-b2e3-b2ba501924da
+                      name: null
+                      createdAt: '2022-06-14T05:08:28.000Z'
+                      updatedAt: '2022-06-14T05:08:28.000Z'
+                    - id: 73ef7fe4-098f-476e-b4c7-7cdc13ba1643
+                      name: null
+                      createdAt: '2022-06-14T05:14:35.000Z'
+                      updatedAt: '2022-06-14T05:14:35.000Z'
+                    - id: 873420c7-e60b-4b8b-acfe-af2f38383e41
+                      name: qui
+                      createdAt: '2022-06-15T10:26:02.000Z'
+                      updatedAt: '2022-06-15T10:26:02.000Z'
+                    - id: 8b9ff219-8b6b-4ab6-b46a-5de38bc1f32a
+                      name: null
+                      createdAt: '2022-06-14T05:20:08.000Z'
+                      updatedAt: '2022-06-14T05:20:08.000Z'
+                    - id: 91e97959-35e6-4389-8462-dd2434b79bcc
+                      name: null
+                      createdAt: '2022-06-14T04:40:29.000Z'
+                      updatedAt: '2022-06-14T04:40:29.000Z'
+                    - id: 92f972d6-12b6-4c35-8b58-b662214875a4
+                      name: null
+                      createdAt: '2022-06-14T05:32:45.000Z'
+                      updatedAt: '2022-06-14T05:32:45.000Z'
+                    - id: acb1f70f-944d-4661-9bda-090632873bdc
+                      name: null
+                      createdAt: '2022-06-14T04:39:04.000Z'
+                      updatedAt: '2022-06-14T04:39:04.000Z'
+                    - id: ae3396d9-a07c-4279-ba76-80a34e584a11
+                      name: null
+                      createdAt: '2022-06-14T05:58:52.000Z'
+                      updatedAt: '2022-06-14T05:58:52.000Z'
+                    - id: b2b03dab-7690-492a-a35f-c84f31502a0c
+                      name: null
+                      createdAt: '2022-06-14T04:56:34.000Z'
+                      updatedAt: '2022-06-14T04:56:34.000Z'
+                    - id: b62d2760-2702-4730-aa63-88f2530c6adc
+                      name: null
+                      createdAt: '2022-06-14T05:11:10.000Z'
+                      updatedAt: '2022-06-14T05:11:10.000Z'
+                    - id: c743b263-ca4e-4d0d-aa5c-ba1d1b48e3f9
+                      name: totam
+                      createdAt: '2022-06-14T06:33:04.000Z'
+                      updatedAt: '2022-06-14T06:33:04.000Z'
+                    - id: cc3faeb5-7615-46fe-bf31-ab81cc744ce4
+                      name: null
+                      createdAt: '2022-06-14T05:00:44.000Z'
+                      updatedAt: '2022-06-14T05:00:44.000Z'
+                    - id: d2d12cc8-8b74-4ec1-9c05-95ef41515f1a
+                      name: null
+                      createdAt: '2022-06-14T04:45:42.000Z'
+                      updatedAt: '2022-06-14T04:45:42.000Z'
+                    - id: d31de43a-6479-4f3b-bea1-3c518871cf10
+                      name: null
+                      createdAt: '2022-06-14T05:11:53.000Z'
+                      updatedAt: '2022-06-14T05:11:53.000Z'
+                    - id: eef591ce-f8b7-46fa-b1fd-93c0b45a2e9e
+                      name: null
+                      createdAt: '2022-06-14T05:13:13.000Z'
+                      updatedAt: '2022-06-14T05:13:13.000Z'
+                    - id: f14cce2c-a774-43df-9d0a-9ce53251ff42
+                      name: voluptatum
+                      createdAt: '2022-06-14T06:29:52.000Z'
+                      updatedAt: '2022-06-14T06:29:52.000Z'
+                    - id: f2ef853a-5563-448e-bbbf-03a16e29b336
+                      name: null
+                      createdAt: '2022-06-14T05:13:50.000Z'
+                      updatedAt: '2022-06-14T05:13:50.000Z'
+                    - id: f3e568e9-7651-48f6-aa2d-00cbee5d9f96
+                      name: null
+                      createdAt: '2022-06-14T04:44:41.000Z'
+                      updatedAt: '2022-06-14T04:44:41.000Z'
+                    - id: f7cfb9d9-fd23-4482-a133-1da4b09b19e8
+                      name: null
+                      createdAt: '2022-06-14T04:45:37.000Z'
+                      updatedAt: '2022-06-14T04:45:37.000Z'
+                    - id: f99b2cbe-e94d-4468-90c3-c97c1c694f52
+                      name: null
+                      createdAt: '2022-06-14T05:01:34.000Z'
+                      updatedAt: '2022-06-14T05:01:34.000Z'
+                  error: null
+                properties: {}
+      tags: []
+      security: []
+  /review/create:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                review:
+                  type: string
+                  description: ''
+                  example: accusamus
+                rating:
+                  type: number
+                  description: ''
+                  example: 51913
+                product_id:
+                  type: uuid
+                  description: ''
+                  example: facilis
+              required:
+                - review
+                - rating
+                - product_id
+        required: true
+      security: []
+  '/review/get/:productID':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: review added
+                  data: []
+                  error: null
+                properties: {}
+      tags: []
+      security: []
+  '/review/delete/:reviewID':
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /buy/buyProduct:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productSellerId:
+                  type: uuid
+                  description: ''
+                  example: tempora
+                quantity:
+                  type: number
+                  description: ''
+                  example: 9103
+              required:
+                - productSellerId
+                - quantity
+        required: true
+      security: []
+  /address/add:
+    post:
+      summary: null
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: title of address
+                  example: 'Home, Office'
+                line1:
+                  type: string
+                  description: line 1 of address
+                  example: incidunt
+                city:
+                  type: string
+                  description: city of this address
+                  example: laboriosam
+                pincode:
+                  type: number
+                  description: pincode of address
+                  example: 395006
+                user_id:
+                  type: uuid
+                  description: Id of user
+                  example: a
+              required:
+                - title
+                - line1
+                - user_id
+        required: true
+      security: []
+  /cart/add:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: uuid
+                  description: Id of user
+                  example: maiores
+                quantity:
+                  type: number
+                  description: quantity of product
+                  example: 23835
+                weight:
+                  type: number
+                  description: weight of product
+                  example: 31913
+                color:
+                  type: string
+                  description: color of product
+                  example: veritatis
+                size:
+                  type: string
+                  description: size of product
+                  example: cupiditate
+                productSellerId:
+                  type: uuid
+                  description: id of product_seller
+                  example: non
+              required:
+                - userId
+        required: true
+      security: []
+  /user/getAll:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: successfully getting all the users
+                  data:
+                    count: 13
+                    currentPage: 1
+                    totalPage: 1
+                    paginatedData:
+                      - id: 17dce47f-6cdb-449c-be7f-b0970cb92530
+                        first_name: dhruvik
+                        last_name: kava
+                        email: fsf@gmail.com
+                        password: >-
+                          $2a$10$dhNFTLKnzgfdpxfJdzVjne/kWz23I1loEG4BWPhR85IPG84iBNMPm
+                        username: dhruvik12345
+                        mobile_no: '9123213123133'
+                        otp: null
+                        photo: photo-1655182093930-120990809.png
+                        status: 1
+                        createdAt: '2022-06-14T04:48:14.000Z'
+                        updatedAt: '2022-06-14T04:48:14.000Z'
+                      - id: 3d5b11c1-7df8-49f8-adf9-05842dbb7f37
+                        first_name: ABCDE
+                        last_name: ADSDA
+                        email: sdsa@gmail.com
+                        password: >-
+                          $2a$10$/KO.R8/nlKxIrca2FoLgAeu2QacOEHtqLk9rtVE3zaqVrae9dVYvu
+                        username: abcde123
+                        mobile_no: '9112221212312'
+                        otp: null
+                        photo: photo-1655705715301-593585669.png
+                        status: 1
+                        createdAt: '2022-06-20T06:15:15.000Z'
+                        updatedAt: '2022-06-20T06:15:15.000Z'
+                      - id: 6ccad26b-032f-4702-9502-5f7521ee2a4c
+                        first_name: ram
+                        last_name: ram
+                        email: ram@gmail.com
+                        password: >-
+                          $2a$10$orv1uqHEx36D1nmf3CAFh.vcUzFZzLSdcvSuJjG7RoOqzPUH.3wf.
+                        username: ram123
+                        mobile_no: '1234567890122'
+                        otp: null
+                        photo: photo-1655367021163-44083047.png
+                        status: 1
+                        createdAt: '2022-06-16T08:10:21.000Z'
+                        updatedAt: '2022-06-16T08:10:21.000Z'
+                      - id: 7b7363db-0367-4346-8f97-d24a4761ecc8
+                        first_name: Jigar
+                        last_name: Shekhat
+                        email: jigar556@gmail.com
+                        password: >-
+                          $2a$10$5Jv4vG4S3C6ex1ygdYMF3uPcV64W6J6kQJv1sD1rxws1AoxrrHet2
+                        username: jigar123
+                        mobile_no: '+918000711887'
+                        otp: null
+                        photo: photo-1655364036366-984417777.png
+                        status: 1
+                        createdAt: '2022-06-16T07:20:36.000Z'
+                        updatedAt: '2022-06-16T07:20:36.000Z'
+                      - id: 7d2db527-0916-42ea-92ef-5ec3eca77146
+                        first_name: dhruvik
+                        last_name: kava
+                        email: dpk@gmail.com
+                        password: >-
+                          $2a$10$pYWX6IO5SbKILYTwOLEVi.kl9qcR3V.CxW6o7kx4X4Z9wmmYPHakK
+                        username: dhruvik123
+                        mobile_no: '9123456789012'
+                        otp: null
+                        photo: photo-1655191333730-508793628.png
+                        status: 1
+                        createdAt: '2022-06-14T07:22:13.000Z'
+                        updatedAt: '2022-06-14T07:22:13.000Z'
+                      - id: 8494b84f-6ffe-45e9-8089-a96d366ffc1d
+                        first_name: ramesh
+                        last_name: sharma
+                        email: dsa@gmail.com
+                        password: >-
+                          $2a$10$a0A5NjeeGnQ6mEQo7ed5ju8Q5TXyVqnLrKLgaFM5Y4hmuPlbUKGiu
+                        username: ramesh123
+                        mobile_no: '9121121233244'
+                        otp: null
+                        photo: photo-1655182396521-104780101.png
+                        status: 1
+                        createdAt: '2022-06-14T04:53:16.000Z'
+                        updatedAt: '2022-06-14T04:53:16.000Z'
+                      - id: 893f433f-1922-443e-b7d0-39dc57e88a30
+                        first_name: Jigar
+                        last_name: Shekhat
+                        email: testemail
+                        password: >-
+                          $2a$10$Ll8A1TXNo5qXQJeNVY43v.XzT03.zgmzOlGY7QlfAY0P1jADbpJ2u
+                        username: testusername
+                        mobile_no: '+918000711872'
+                        otp: 7977
+                        photo: photo-1655117867756-70835719.png
+                        status: 1
+                        createdAt: '2022-06-13T10:57:47.000Z'
+                        updatedAt: '2022-06-21T10:00:51.000Z'
+                      - id: ad9eb665-0ec5-4b89-b93c-6af38aaf69b6
+                        first_name: dhruvik
+                        last_name: kava
+                        email: dj@gmail.com
+                        password: >-
+                          $2a$10$XprKVYYl2fwbs.zNvXdFX.N.u0wt3V.NjCGZ8J8CD6wcn0DzHhHc2
+                        username: dpk123
+                        mobile_no: ''
+                        otp: null
+                        photo: photo-1655117946034-709105317.png
+                        status: 1
+                        createdAt: '2022-06-13T10:59:06.000Z'
+                        updatedAt: '2022-06-13T10:59:06.000Z'
+                      - id: b1b783fa-f4ab-4181-b488-3f5b71a9e403
+                        first_name: Jigar
+                        last_name: Shekhat
+                        email: jigar222@gmail.com
+                        password: >-
+                          $2a$10$QXNhdaW/1guD0g5WRgdjzuHRpzHnh4jJ1A0WhKYCGoKp3JFGqq.Gq
+                        username: admin123
+                        mobile_no: '+918000711876'
+                        otp: null
+                        photo: photo-1655286305465-916674635.png
+                        status: 1
+                        createdAt: '2022-06-15T09:45:05.000Z'
+                        updatedAt: '2022-06-15T09:45:05.000Z'
+                      - id: b245f83c-2472-4200-a2bf-cf1b95ddbc3b
+                        first_name: ramesh
+                        last_name: dsasd
+                        email: sds@gmail.com
+                        password: >-
+                          $2a$10$spckwIyCX/gIgg108YkUfOaZFY3Qlxw9ab/XkoFau3mX2MEhdnstO
+                        username: ramesh1234
+                        mobile_no: '9123322322322'
+                        otp: null
+                        photo: photo-1655284916273-678056955.png
+                        status: 1
+                        createdAt: '2022-06-15T09:21:56.000Z'
+                        updatedAt: '2022-06-15T09:21:56.000Z'
+                      - id: c1a833ff-b90d-4f65-b122-c1f29d06c15f
+                        first_name: abcd
+                        last_name: saassa
+                        email: sd@gmail.com
+                        password: >-
+                          $2a$10$6m68U4v9LTsxKLd4e0Ige.iqxmZviOWzOll0SyE2d2.1/d97T.5Me
+                        username: abcd123
+                        mobile_no: '9123232132237'
+                        otp: null
+                        photo: photo-1655191874460-575794688.png
+                        status: 1
+                        createdAt: '2022-06-14T07:31:14.000Z'
+                        updatedAt: '2022-06-14T07:31:14.000Z'
+                      - id: cb583f85-6002-4b82-a9e6-0cf4e433a460
+                        first_name: xyz
+                        last_name: xyz
+                        email: xyz@gmail.com
+                        password: >-
+                          $2a$10$fD1UdooJfQboDT7mi.pffuJky2mM24uT4zD2EGc3g.hWgwUqUoNt6
+                        username: xyz
+                        mobile_no: '9180008711889'
+                        otp: null
+                        photo: photo-1655363245693-142362136.png
+                        status: 1
+                        createdAt: '2022-06-16T07:07:25.000Z'
+                        updatedAt: '2022-06-16T07:07:25.000Z'
+                      - id: e3bf4920-6976-4c4d-b371-a82436adabb4
+                        first_name: abcde
+                        last_name: sda
+                        email: df@gmail.com
+                        password: >-
+                          $2a$10$LMKP7JfWjbc97.Nai90yPeWNIVGt9YLVx6e2IohY5zxc9SRpxWaD6
+                        username: abcd1234
+                        mobile_no: '9112345678902'
+                        otp: null
+                        photo: photo-1655363734913-170322714.png
+                        status: 1
+                        createdAt: '2022-06-16T07:15:35.000Z'
+                        updatedAt: '2022-06-16T07:15:35.000Z'
+                  error: null
+                properties: {}
+      tags: []
+      security: []
+  '/address/delete/:addressId':
+    delete:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /address/edit:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /address/getAll:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /cart/buy:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/cart/delete/:cartId':
+    delete:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /cart/get:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /order/cart:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/order/track/:orderId':
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /payments/create:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /payments/edit:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  '/payments/delete/:paymentCardId':
+    delete:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /payments/get:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: Please login first
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /coupon/add:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 500
+                  isSuccess: false
+                  message: Internal server error
+                  data: null
+                  error:
+                    name: SequelizeValidationError
+                    errors:
+                      - message: Coupon.name cannot be null
+                        type: notNull Violation
+                        path: name
+                        value: null
+                        origin: CORE
+                        instance:
+                          id: 93f3c122-a08c-4582-8ac0-66d0600813e6
+                          redeem_code: 7q4mdh77p1p6lqprykgz
+                          expire_date: '2022-06-21T10:00:52.868Z'
+                          updatedAt: '2022-06-21T10:00:52.870Z'
+                          createdAt: '2022-06-21T10:00:52.870Z'
+                        validatorKey: is_null
+                        validatorName: null
+                        validatorArgs: []
+                properties: {}
+      tags: []
+      security: []
+  /coupon/edit:
+    post:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '500':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 500
+                  isSuccess: false
+                  message: Internal server error
+                  data: null
+                  error: {}
+                properties: {}
+      tags: []
+      security: []
+  '/coupon/delete/:couponId':
+    delete:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 400
+                  isSuccess: false
+                  message: coupon is not exist
+                  data: null
+                  error: Bad Request Error is occured
+                properties: {}
+      tags: []
+      security: []
+  /coupon/getAll:
+    get:
+      description: ''
+      parameters:
+        - in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        - in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: ok
+                  statusCode: 200
+                  isSuccess: true
+                  message: successfully getting data
+                  data:
+                    count: 13
+                    currentPage: 1
+                    totalPage: 1
+                    paginatedData:
+                      - id: 4c2b5a61-8120-414a-8e3a-3c564188a204
+                        redeem_code: t2lflxzk9dwrmmfyqv7k
+                        name: 10% Cashback on sell any electronics
+                        percentage: 10
+                        discount: 0
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T07:30:43.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T07:30:43.000Z'
+                        updatedAt: '2022-06-21T07:30:43.000Z'
+                      - id: 50b8ecbe-8854-4898-b760-33f38dd36e8a
+                        redeem_code: 79ba09nd11e3xqpy3n7j
+                        name: 10Rs Cashback on HDFC collect
+                        percentage: 0
+                        discount: 10
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T07:28:45.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T07:28:45.000Z'
+                        updatedAt: '2022-06-21T07:28:45.000Z'
+                      - id: 5b8d94ad-5371-4607-9d2c-1987782f676c
+                        redeem_code: plmxcc284zit49jz97j0
+                        name: 100Rs on all activate sells
+                        percentage: 0
+                        discount: 100
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T07:31:25.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T07:31:25.000Z'
+                        updatedAt: '2022-06-21T07:31:25.000Z'
+                      - id: 6673204b-0422-4c57-a3a3-0b559bf37978
+                        redeem_code: 1o7o3hjz948bozs5js3j
+                        name: Rs 20 on sell product by BOB credit card
+                        percentage: 0
+                        discount: 20
+                        term_condition: nition for the mat-table. Captures the templat
+                        expire_date: '2022-06-21T09:47:42.000Z'
+                        status: 1
+                        createdAt: '2022-06-21T09:47:42.000Z'
+                        updatedAt: '2022-06-21T09:47:42.000Z'
+                      - id: 71cf04df-2a88-4335-b151-67b113fba76a
+                        redeem_code: sl4qgwpihnik1egpyafc
+                        name: 50 Rs. cashback
+                        percentage: 0
+                        discount: 50
+                        term_condition: this coupon can be used for only for all user
+                        expire_date: '2022-07-11T06:00:44.000Z'
+                        status: 2
+                        createdAt: '2022-06-21T06:00:44.000Z'
+                        updatedAt: '2022-06-21T06:00:44.000Z'
+                      - id: 7f6a54d5-3966-4eea-9e34-24173efac616
+                        redeem_code: vbzt38cpot7lqqlr0qu9
+                        name: Flat 50% cashback on sell Fruits
+                        percentage: 50
+                        discount: 0
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T07:28:03.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T07:28:03.000Z'
+                        updatedAt: '2022-06-21T07:28:03.000Z'
+                      - id: 8384bde5-2de1-46aa-8cf2-d5f6575bb4cf
+                        redeem_code: o0q0l87k1ryqsiflxy9b
+                        name: 10% off on HDFC credit card
+                        percentage: 10
+                        discount: 0
+                        term_condition: this coupon can be used for only for all user
+                        expire_date: '2022-07-11T06:00:13.000Z'
+                        status: 1
+                        createdAt: '2022-06-21T06:00:13.000Z'
+                        updatedAt: '2022-06-21T06:00:13.000Z'
+                      - id: 84342032-c4ec-4ac5-88a6-5bd5fc20910e
+                        redeem_code: ls2wsukk2dmb3w9kxiqz
+                        name: 500Rs cashback on SBI debit card
+                        percentage: 0
+                        discount: 500
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T07:29:31.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T07:29:31.000Z'
+                        updatedAt: '2022-06-21T07:29:31.000Z'
+                      - id: 98a5b98d-6536-4f61-9963-a07eba833f9f
+                        redeem_code: 70atv14xup77kx0lipop
+                        name: sdas
+                        percentage: 12
+                        discount: 0
+                        term_condition: weqwew
+                        expire_date: '2022-06-21T09:01:48.000Z'
+                        status: 0
+                        createdAt: '2022-06-21T09:01:48.000Z'
+                        updatedAt: '2022-06-21T09:01:48.000Z'
+                      - id: b96fae59-8a2a-421c-9fc3-c7dd376dd8e5
+                        redeem_code: rlyrnqj6nn416oiyf3tf
+                        name: 5% off on UPI
+                        percentage: 5
+                        discount: 0
+                        term_condition: inition for the mat-table. Captures the templat
+                        expire_date: '2022-06-21T09:50:13.000Z'
+                        status: 3
+                        createdAt: '2022-06-21T09:50:13.000Z'
+                        updatedAt: '2022-06-21T09:50:13.000Z'
+                      - id: c7448d42-9b26-49f4-9c3a-52d606e597d8
+                        redeem_code: u070gpig4nwv1egbximi
+                        name: flat $20 on each product
+                        percentage: 20
+                        discount: 0
+                        term_condition: 'We can access the order query parameter like this:'
+                        expire_date: '2022-06-21T09:20:11.000Z'
+                        status: 3
+                        createdAt: '2022-06-21T09:20:11.000Z'
+                        updatedAt: '2022-06-21T09:20:11.000Z'
+                      - id: d61421b1-d8d2-47f5-a685-89fa2b1353f1
+                        redeem_code: 2phggiicbbwgkfdhpidx
+                        name: 200 off on ICIC credit card
+                        percentage: 0
+                        discount: 200
+                        term_condition: this coupon can be used for only for all user
+                        expire_date: '2022-07-11T05:59:52.000Z'
+                        status: 1
+                        createdAt: '2022-06-21T05:59:52.000Z'
+                        updatedAt: '2022-06-21T05:59:52.000Z'
+                      - id: e94b7a1b-a1e5-421f-9c2e-43943335ef94
+                        redeem_code: 55ecpvxu8kzhwpw3fnd4
+                        name: 20% disc on sell dress
+                        percentage: 20
+                        discount: 0
+                        term_condition: 'That''s the right way to use the element, you must have'
+                        expire_date: '2022-06-21T09:04:54.000Z'
+                        status: 1
+                        createdAt: '2022-06-21T09:04:54.000Z'
+                        updatedAt: '2022-06-21T09:04:54.000Z'
+                  error: null
+                properties: {}
+      tags: []
+      security: []

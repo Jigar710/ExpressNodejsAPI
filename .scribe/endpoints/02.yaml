@@ -1,0 +1,257 @@
+name: Category
+endpoints:
+  - uri: /category/add
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      name:
+        name: name
+        type: string
+        required: true
+        description: name of category.
+        example: food
+      small_desc:
+        name: small_desc
+        type: string
+        required: true
+        description: small description of category.
+        example: amet
+      long_desc:
+        name: long_desc
+        type: string
+        required: true
+        description: long description of category
+        example: est
+      image:
+        name: image
+        type: image
+        required: true
+        description: this is file.
+        example: voluptates
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /category/update
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      id:
+        name: id
+        type: string
+        required: true
+        description: id of category
+        example: 78196526-7254-4abc-a101-7bc2ba6ba89c
+      name:
+        name: name
+        type: string
+        required: true
+        description: name of category.
+        example: food
+      small_desc:
+        name: small_desc
+        type: string
+        required: true
+        description: small description of category.
+        example: occaecati
+      long_desc:
+        name: long_desc
+        type: string
+        required: true
+        description: long description of category
+        example: vel
+      image:
+        name: image
+        type: string
+        required: true
+        description: this is file.
+        example: explicabo
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: '/category/getDetails/:categoryID'
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      categoryID:
+        name: categoryID
+        example: non
+        required: true
+        type: string
+        description: ''
+        match: ':categoryID'
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /category/getAllcategories
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: '/category/getAllProducts/:categoryID'
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      categoryID:
+        name: categoryID
+        example: cumque
+        required: true
+        type: string
+        description: ''
+        match: ':categoryID'
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: '/category/delete/:categoryID'
+    httpMethods:
+      - DELETE
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      categoryID:
+        name: categoryID
+        example: molestiae
+        required: true
+        type: string
+        description: ''
+        match: ':categoryID'
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}

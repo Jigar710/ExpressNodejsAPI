@@ -1,0 +1,44 @@
+name: Buy
+endpoints:
+  - uri: /buy/buyProduct
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      productSellerId:
+        name: productSellerId
+        type: uuid
+        required: true
+        description: ''
+        example: tempora
+      quantity:
+        name: quantity
+        type: number
+        required: true
+        description: ''
+        example: 9103
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}

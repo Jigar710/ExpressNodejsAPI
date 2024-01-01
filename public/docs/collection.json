@@ -1,0 +1,2711 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost:3003"
+        }
+    ],
+    "info": {
+        "name": "Structured Node Project Documentation",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "af08034e-102f-4d58-af7d-54bd1410f6a7"
+    },
+    "item": [
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "/user/signup",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/signup",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/signup"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"testrfirstuser\",\n    \"lastName\": \"testlastname\",\n    \"username\": \"testusername\",\n    \"email\": \"testemail\",\n    \"password\": \"testpassword@123\",\n    \"confirm_password\": \"testpassword@123\",\n    \"role\": \"Customer\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": [\n        \"\\\"email\\\" must be a valid email\",\n        \"mobile number is required\"\n    ],\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/user/login",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/login",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testusername\",\n    \"password\": \"testpassword\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\n    \"status\": \"unauthorized\",\n    \"statusCode\": 401,\n    \"isSuccess\": false,\n    \"message\": \"Invalid credentials\",\n    \"data\": null,\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/user/mobileEntry",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/mobileEntry",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/mobileEntry"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"mobileNo\": \"+918000711872\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"successfully otp send\",\n    \"data\": {\n        \"otp\": \"7977\"\n    },\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/user/change",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/change",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/change"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"testrfirstuser\",\n    \"lastName\": \"testlastname\",\n    \"username\": \"testusername\",\n    \"email\": \"testemail\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/user/update",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/update",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testusername\",\n    \"email\": \"testemail\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": [\n        \"id is required\",\n        \"\\\"email\\\" must be a valid email\"\n    ],\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "item": [
+                {
+                    "name": "/role/create",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "role/create",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/role/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Admin, Customer, Seller\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Category",
+            "item": [
+                {
+                    "name": "/category/add",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/add",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"food\",\n    \"small_desc\": \"amet\",\n    \"long_desc\": \"est\",\n    \"image\": \"voluptates\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/category/update",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/update",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"78196526-7254-4abc-a101-7bc2ba6ba89c\",\n    \"name\": \"food\",\n    \"small_desc\": \"occaecati\",\n    \"long_desc\": \"vel\",\n    \"image\": \"explicabo\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/category/getDetails/:categoryID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/getDetails/:categoryID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/getDetails/:categoryID",
+                            "variable": [
+                                {
+                                    "id": "categoryID",
+                                    "key": "categoryID",
+                                    "value": "non",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/category/getAllcategories",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/getAllcategories",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/getAllcategories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/category/getAllProducts/:categoryID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/getAllProducts/:categoryID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/getAllProducts/:categoryID",
+                            "variable": [
+                                {
+                                    "id": "categoryID",
+                                    "key": "categoryID",
+                                    "value": "cumque",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/category/delete/:categoryID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "category/delete/:categoryID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/category/delete/:categoryID",
+                            "variable": [
+                                {
+                                    "id": "categoryID",
+                                    "key": "categoryID",
+                                    "value": "molestiae",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "item": [
+                {
+                    "name": "/product/create",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/create",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"food\",\n    \"small_desc\": \"atque\",\n    \"long_desc\": \"incidunt\",\n    \"image\": \"numquam\",\n    \"status_id\": \"tenetur\",\n    \"categories\": \"c30af3d1-d6b8-4a90-b58e-49e124431f71,d30af3d1-d8b8-4a90-b58e-49e12551f71\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/update",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/update",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"quo\",\n    \"name\": \"food\",\n    \"small_desc\": \"id\",\n    \"long_desc\": \"molestiae\",\n    \"image\": \"sit\",\n    \"status_id\": \"ea\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": null,
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/getDetails/:productId?",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/getDetails/:productId?",
+                            "variable": [
+                                {
+                                    "id": "productId",
+                                    "key": "productId",
+                                    "value": "minima",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/delete/:productID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/delete/:productID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/delete/:productID",
+                            "variable": [
+                                {
+                                    "id": "productID",
+                                    "key": "productID",
+                                    "value": "neque",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/getAll",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/getAll",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/getAll"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/addPriceQuantity",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/addPriceQuantity",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/addPriceQuantity"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"user_id\": \"provident\",\n    \"product_id\": \"quibusdam\",\n    \"price\": 77374,\n    \"quantity\": 68418,\n    \"brand\": \"in\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/addImages",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/addImages",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/addImages"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"product_id\": \"sapiente\",\n    \"images\": \"sunt\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/updateSpecs",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/updateSpecs",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/updateSpecs"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"beatae\",\n    \"product_id\": \"aut\",\n    \"price\": 84557\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": null,
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/filter",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "natus",
+                                    "description": "Category's Name",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "seller",
+                                    "value": "aut",
+                                    "description": "name of seller brand",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sortBy",
+                                    "value": "price-desc%2C%20price-asc%2C%20oldest%2C%20newest",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "minPrice",
+                                    "value": "10483",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "maxPrice",
+                                    "value": "10676",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "14048",
+                                    "description": "",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "2755",
+                                    "description": "",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http://{{baseUrl}}/product/filter?name=natus&seller=aut&sortBy=price-desc%2C%20price-asc%2C%20oldest%2C%20newest&minPrice=10483&maxPrice=10676&limit=14048&page=2755"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 500,\n    \"isSuccess\": false,\n    \"message\": \"Internal server error\",\n    \"data\": null,\n    \"error\": {\n        \"name\": \"SequelizeDatabaseError\",\n        \"parent\": {\n            \"code\": \"ER_BAD_FIELD_ERROR\",\n            \"errno\": 1054,\n            \"sqlState\": \"42S22\",\n            \"sqlMessage\": \"Unknown column 'ProductCategories.category_id' in 'on clause'\",\n            \"sql\": \"SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';\"\n        },\n        \"original\": {\n            \"code\": \"ER_BAD_FIELD_ERROR\",\n            \"errno\": 1054,\n            \"sqlState\": \"42S22\",\n            \"sqlMessage\": \"Unknown column 'ProductCategories.category_id' in 'on clause'\",\n            \"sql\": \"SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';\"\n        },\n        \"sql\": \"SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';\",\n        \"parameters\": {}\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/search",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/search",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/product/search"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 500,\n    \"isSuccess\": false,\n    \"message\": \"Internal server error\",\n    \"data\": null,\n    \"error\": {}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/product/suggestions",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "product/suggestions",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "corporis",
+                                    "description": "searching word",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http://{{baseUrl}}/product/suggestions?name=corporis"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"suggestions\",\n    \"data\": [],\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Status",
+            "item": [
+                {
+                    "name": "/status/create",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "status/create",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/status/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"necessitatibus\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/status/update",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "status/update",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/status/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": \"molestiae\",\n    \"name\": \"assumenda\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/status/changeStatus",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "status/changeStatus",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/status/changeStatus"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"ut\",\n    \"status\": 33868\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/status/getAll",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "status/getAll",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/status/getAll"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"successfully getting all statuses\",\n    \"data\": [\n        {\n            \"id\": \"046d34a5-415d-49ad-b57d-12338f3a1058\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:02:08.000Z\",\n            \"updatedAt\": \"2022-06-14T05:02:08.000Z\"\n        },\n        {\n            \"id\": \"0760fa17-a491-43c1-a032-c954441e4954\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:54:48.000Z\",\n            \"updatedAt\": \"2022-06-14T04:54:48.000Z\"\n        },\n        {\n            \"id\": \"09976a28-52b4-4e9c-9c7a-f4e4438715e3\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:47:56.000Z\",\n            \"updatedAt\": \"2022-06-14T04:47:56.000Z\"\n        },\n        {\n            \"id\": \"0cf1b8e9-f73d-4373-8dd4-4166a604a566\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:14:24.000Z\",\n            \"updatedAt\": \"2022-06-14T05:14:24.000Z\"\n        },\n        {\n            \"id\": \"22203aa3-8450-483f-85a3-ba3ae1c1cb3c\",\n            \"name\": \"Sold out\",\n            \"createdAt\": \"2022-06-14T04:24:42.000Z\",\n            \"updatedAt\": \"2022-06-14T04:24:42.000Z\"\n        },\n        {\n            \"id\": \"298cee5e-cf85-4083-8201-66e1913531fe\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:43:20.000Z\",\n            \"updatedAt\": \"2022-06-14T04:43:20.000Z\"\n        },\n        {\n            \"id\": \"2eb81056-964d-460a-bc16-143735f1deda\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:44:22.000Z\",\n            \"updatedAt\": \"2022-06-14T05:44:22.000Z\"\n        },\n        {\n            \"id\": \"3557e2b4-b051-4c7e-8036-60ddf6b9143b\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T06:04:06.000Z\",\n            \"updatedAt\": \"2022-06-14T06:04:06.000Z\"\n        },\n        {\n            \"id\": \"3a8c1827-5e5b-4c00-aab3-a1022f6454f9\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:09:46.000Z\",\n            \"updatedAt\": \"2022-06-14T05:09:46.000Z\"\n        },\n        {\n            \"id\": \"5b81e4f6-98b0-459c-a0b1-1a5ba5bc5a18\",\n            \"name\": \"quo\",\n            \"createdAt\": \"2022-06-14T06:30:50.000Z\",\n            \"updatedAt\": \"2022-06-14T06:30:50.000Z\"\n        },\n        {\n            \"id\": \"6bccdb5b-d74f-480e-b2e3-b2ba501924da\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:08:28.000Z\",\n            \"updatedAt\": \"2022-06-14T05:08:28.000Z\"\n        },\n        {\n            \"id\": \"73ef7fe4-098f-476e-b4c7-7cdc13ba1643\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:14:35.000Z\",\n            \"updatedAt\": \"2022-06-14T05:14:35.000Z\"\n        },\n        {\n            \"id\": \"873420c7-e60b-4b8b-acfe-af2f38383e41\",\n            \"name\": \"qui\",\n            \"createdAt\": \"2022-06-15T10:26:02.000Z\",\n            \"updatedAt\": \"2022-06-15T10:26:02.000Z\"\n        },\n        {\n            \"id\": \"8b9ff219-8b6b-4ab6-b46a-5de38bc1f32a\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:20:08.000Z\",\n            \"updatedAt\": \"2022-06-14T05:20:08.000Z\"\n        },\n        {\n            \"id\": \"91e97959-35e6-4389-8462-dd2434b79bcc\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:40:29.000Z\",\n            \"updatedAt\": \"2022-06-14T04:40:29.000Z\"\n        },\n        {\n            \"id\": \"92f972d6-12b6-4c35-8b58-b662214875a4\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:32:45.000Z\",\n            \"updatedAt\": \"2022-06-14T05:32:45.000Z\"\n        },\n        {\n            \"id\": \"acb1f70f-944d-4661-9bda-090632873bdc\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:39:04.000Z\",\n            \"updatedAt\": \"2022-06-14T04:39:04.000Z\"\n        },\n        {\n            \"id\": \"ae3396d9-a07c-4279-ba76-80a34e584a11\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:58:52.000Z\",\n            \"updatedAt\": \"2022-06-14T05:58:52.000Z\"\n        },\n        {\n            \"id\": \"b2b03dab-7690-492a-a35f-c84f31502a0c\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:56:34.000Z\",\n            \"updatedAt\": \"2022-06-14T04:56:34.000Z\"\n        },\n        {\n            \"id\": \"b62d2760-2702-4730-aa63-88f2530c6adc\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:11:10.000Z\",\n            \"updatedAt\": \"2022-06-14T05:11:10.000Z\"\n        },\n        {\n            \"id\": \"c743b263-ca4e-4d0d-aa5c-ba1d1b48e3f9\",\n            \"name\": \"totam\",\n            \"createdAt\": \"2022-06-14T06:33:04.000Z\",\n            \"updatedAt\": \"2022-06-14T06:33:04.000Z\"\n        },\n        {\n            \"id\": \"cc3faeb5-7615-46fe-bf31-ab81cc744ce4\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:00:44.000Z\",\n            \"updatedAt\": \"2022-06-14T05:00:44.000Z\"\n        },\n        {\n            \"id\": \"d2d12cc8-8b74-4ec1-9c05-95ef41515f1a\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:45:42.000Z\",\n            \"updatedAt\": \"2022-06-14T04:45:42.000Z\"\n        },\n        {\n            \"id\": \"d31de43a-6479-4f3b-bea1-3c518871cf10\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:11:53.000Z\",\n            \"updatedAt\": \"2022-06-14T05:11:53.000Z\"\n        },\n        {\n            \"id\": \"eef591ce-f8b7-46fa-b1fd-93c0b45a2e9e\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:13:13.000Z\",\n            \"updatedAt\": \"2022-06-14T05:13:13.000Z\"\n        },\n        {\n            \"id\": \"f14cce2c-a774-43df-9d0a-9ce53251ff42\",\n            \"name\": \"voluptatum\",\n            \"createdAt\": \"2022-06-14T06:29:52.000Z\",\n            \"updatedAt\": \"2022-06-14T06:29:52.000Z\"\n        },\n        {\n            \"id\": \"f2ef853a-5563-448e-bbbf-03a16e29b336\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:13:50.000Z\",\n            \"updatedAt\": \"2022-06-14T05:13:50.000Z\"\n        },\n        {\n            \"id\": \"f3e568e9-7651-48f6-aa2d-00cbee5d9f96\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:44:41.000Z\",\n            \"updatedAt\": \"2022-06-14T04:44:41.000Z\"\n        },\n        {\n            \"id\": \"f7cfb9d9-fd23-4482-a133-1da4b09b19e8\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T04:45:37.000Z\",\n            \"updatedAt\": \"2022-06-14T04:45:37.000Z\"\n        },\n        {\n            \"id\": \"f99b2cbe-e94d-4468-90c3-c97c1c694f52\",\n            \"name\": null,\n            \"createdAt\": \"2022-06-14T05:01:34.000Z\",\n            \"updatedAt\": \"2022-06-14T05:01:34.000Z\"\n        }\n    ],\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Review",
+            "item": [
+                {
+                    "name": "/review/create",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "review/create",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/review/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"review\": \"accusamus\",\n    \"rating\": 51913,\n    \"product_id\": \"facilis\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/review/get/:productID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "review/get/:productID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/review/get/:productID",
+                            "variable": [
+                                {
+                                    "id": "productID",
+                                    "key": "productID",
+                                    "value": "doloremque",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"review added\",\n    \"data\": [],\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "/review/delete/:reviewID",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "review/delete/:reviewID",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/review/delete/:reviewID",
+                            "variable": [
+                                {
+                                    "id": "reviewID",
+                                    "key": "reviewID",
+                                    "value": "sit",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Buy",
+            "item": [
+                {
+                    "name": "/buy/buyProduct",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "buy/buyProduct",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/buy/buyProduct"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"productSellerId\": \"tempora\",\n    \"quantity\": 9103\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Address",
+            "item": [
+                {
+                    "name": null,
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "address/add",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/address/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Home, Office\",\n    \"line1\": \"incidunt\",\n    \"city\": \"laboriosam\",\n    \"pincode\": 395006,\n    \"user_id\": \"a\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Cart",
+            "item": [
+                {
+                    "name": "/cart/add",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "cart/add",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/cart/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"userId\": \"maiores\",\n    \"quantity\": 23835,\n    \"weight\": 31913,\n    \"color\": \"veritatis\",\n    \"size\": \"cupiditate\",\n    \"productSellerId\": \"non\"\n}"
+                        },
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "item": [
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "user/getAll",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/user/getAll"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"successfully getting all the users\",\n    \"data\": {\n        \"count\": 13,\n        \"currentPage\": 1,\n        \"totalPage\": 1,\n        \"paginatedData\": [\n            {\n                \"id\": \"17dce47f-6cdb-449c-be7f-b0970cb92530\",\n                \"first_name\": \"dhruvik\",\n                \"last_name\": \"kava\",\n                \"email\": \"fsf@gmail.com\",\n                \"password\": \"$2a$10$dhNFTLKnzgfdpxfJdzVjne/kWz23I1loEG4BWPhR85IPG84iBNMPm\",\n                \"username\": \"dhruvik12345\",\n                \"mobile_no\": \"9123213123133\",\n                \"otp\": null,\n                \"photo\": \"photo-1655182093930-120990809.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-14T04:48:14.000Z\",\n                \"updatedAt\": \"2022-06-14T04:48:14.000Z\"\n            },\n            {\n                \"id\": \"3d5b11c1-7df8-49f8-adf9-05842dbb7f37\",\n                \"first_name\": \"ABCDE\",\n                \"last_name\": \"ADSDA\",\n                \"email\": \"sdsa@gmail.com\",\n                \"password\": \"$2a$10$/KO.R8/nlKxIrca2FoLgAeu2QacOEHtqLk9rtVE3zaqVrae9dVYvu\",\n                \"username\": \"abcde123\",\n                \"mobile_no\": \"9112221212312\",\n                \"otp\": null,\n                \"photo\": \"photo-1655705715301-593585669.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-20T06:15:15.000Z\",\n                \"updatedAt\": \"2022-06-20T06:15:15.000Z\"\n            },\n            {\n                \"id\": \"6ccad26b-032f-4702-9502-5f7521ee2a4c\",\n                \"first_name\": \"ram\",\n                \"last_name\": \"ram\",\n                \"email\": \"ram@gmail.com\",\n                \"password\": \"$2a$10$orv1uqHEx36D1nmf3CAFh.vcUzFZzLSdcvSuJjG7RoOqzPUH.3wf.\",\n                \"username\": \"ram123\",\n                \"mobile_no\": \"1234567890122\",\n                \"otp\": null,\n                \"photo\": \"photo-1655367021163-44083047.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-16T08:10:21.000Z\",\n                \"updatedAt\": \"2022-06-16T08:10:21.000Z\"\n            },\n            {\n                \"id\": \"7b7363db-0367-4346-8f97-d24a4761ecc8\",\n                \"first_name\": \"Jigar\",\n                \"last_name\": \"Shekhat\",\n                \"email\": \"jigar556@gmail.com\",\n                \"password\": \"$2a$10$5Jv4vG4S3C6ex1ygdYMF3uPcV64W6J6kQJv1sD1rxws1AoxrrHet2\",\n                \"username\": \"jigar123\",\n                \"mobile_no\": \"+918000711887\",\n                \"otp\": null,\n                \"photo\": \"photo-1655364036366-984417777.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-16T07:20:36.000Z\",\n                \"updatedAt\": \"2022-06-16T07:20:36.000Z\"\n            },\n            {\n                \"id\": \"7d2db527-0916-42ea-92ef-5ec3eca77146\",\n                \"first_name\": \"dhruvik\",\n                \"last_name\": \"kava\",\n                \"email\": \"dpk@gmail.com\",\n                \"password\": \"$2a$10$pYWX6IO5SbKILYTwOLEVi.kl9qcR3V.CxW6o7kx4X4Z9wmmYPHakK\",\n                \"username\": \"dhruvik123\",\n                \"mobile_no\": \"9123456789012\",\n                \"otp\": null,\n                \"photo\": \"photo-1655191333730-508793628.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-14T07:22:13.000Z\",\n                \"updatedAt\": \"2022-06-14T07:22:13.000Z\"\n            },\n            {\n                \"id\": \"8494b84f-6ffe-45e9-8089-a96d366ffc1d\",\n                \"first_name\": \"ramesh\",\n                \"last_name\": \"sharma\",\n                \"email\": \"dsa@gmail.com\",\n                \"password\": \"$2a$10$a0A5NjeeGnQ6mEQo7ed5ju8Q5TXyVqnLrKLgaFM5Y4hmuPlbUKGiu\",\n                \"username\": \"ramesh123\",\n                \"mobile_no\": \"9121121233244\",\n                \"otp\": null,\n                \"photo\": \"photo-1655182396521-104780101.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-14T04:53:16.000Z\",\n                \"updatedAt\": \"2022-06-14T04:53:16.000Z\"\n            },\n            {\n                \"id\": \"893f433f-1922-443e-b7d0-39dc57e88a30\",\n                \"first_name\": \"Jigar\",\n                \"last_name\": \"Shekhat\",\n                \"email\": \"testemail\",\n                \"password\": \"$2a$10$Ll8A1TXNo5qXQJeNVY43v.XzT03.zgmzOlGY7QlfAY0P1jADbpJ2u\",\n                \"username\": \"testusername\",\n                \"mobile_no\": \"+918000711872\",\n                \"otp\": 7977,\n                \"photo\": \"photo-1655117867756-70835719.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-13T10:57:47.000Z\",\n                \"updatedAt\": \"2022-06-21T10:00:51.000Z\"\n            },\n            {\n                \"id\": \"ad9eb665-0ec5-4b89-b93c-6af38aaf69b6\",\n                \"first_name\": \"dhruvik\",\n                \"last_name\": \"kava\",\n                \"email\": \"dj@gmail.com\",\n                \"password\": \"$2a$10$XprKVYYl2fwbs.zNvXdFX.N.u0wt3V.NjCGZ8J8CD6wcn0DzHhHc2\",\n                \"username\": \"dpk123\",\n                \"mobile_no\": \"\",\n                \"otp\": null,\n                \"photo\": \"photo-1655117946034-709105317.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-13T10:59:06.000Z\",\n                \"updatedAt\": \"2022-06-13T10:59:06.000Z\"\n            },\n            {\n                \"id\": \"b1b783fa-f4ab-4181-b488-3f5b71a9e403\",\n                \"first_name\": \"Jigar\",\n                \"last_name\": \"Shekhat\",\n                \"email\": \"jigar222@gmail.com\",\n                \"password\": \"$2a$10$QXNhdaW/1guD0g5WRgdjzuHRpzHnh4jJ1A0WhKYCGoKp3JFGqq.Gq\",\n                \"username\": \"admin123\",\n                \"mobile_no\": \"+918000711876\",\n                \"otp\": null,\n                \"photo\": \"photo-1655286305465-916674635.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-15T09:45:05.000Z\",\n                \"updatedAt\": \"2022-06-15T09:45:05.000Z\"\n            },\n            {\n                \"id\": \"b245f83c-2472-4200-a2bf-cf1b95ddbc3b\",\n                \"first_name\": \"ramesh\",\n                \"last_name\": \"dsasd\",\n                \"email\": \"sds@gmail.com\",\n                \"password\": \"$2a$10$spckwIyCX/gIgg108YkUfOaZFY3Qlxw9ab/XkoFau3mX2MEhdnstO\",\n                \"username\": \"ramesh1234\",\n                \"mobile_no\": \"9123322322322\",\n                \"otp\": null,\n                \"photo\": \"photo-1655284916273-678056955.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-15T09:21:56.000Z\",\n                \"updatedAt\": \"2022-06-15T09:21:56.000Z\"\n            },\n            {\n                \"id\": \"c1a833ff-b90d-4f65-b122-c1f29d06c15f\",\n                \"first_name\": \"abcd\",\n                \"last_name\": \"saassa\",\n                \"email\": \"sd@gmail.com\",\n                \"password\": \"$2a$10$6m68U4v9LTsxKLd4e0Ige.iqxmZviOWzOll0SyE2d2.1/d97T.5Me\",\n                \"username\": \"abcd123\",\n                \"mobile_no\": \"9123232132237\",\n                \"otp\": null,\n                \"photo\": \"photo-1655191874460-575794688.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-14T07:31:14.000Z\",\n                \"updatedAt\": \"2022-06-14T07:31:14.000Z\"\n            },\n            {\n                \"id\": \"cb583f85-6002-4b82-a9e6-0cf4e433a460\",\n                \"first_name\": \"xyz\",\n                \"last_name\": \"xyz\",\n                \"email\": \"xyz@gmail.com\",\n                \"password\": \"$2a$10$fD1UdooJfQboDT7mi.pffuJky2mM24uT4zD2EGc3g.hWgwUqUoNt6\",\n                \"username\": \"xyz\",\n                \"mobile_no\": \"9180008711889\",\n                \"otp\": null,\n                \"photo\": \"photo-1655363245693-142362136.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-16T07:07:25.000Z\",\n                \"updatedAt\": \"2022-06-16T07:07:25.000Z\"\n            },\n            {\n                \"id\": \"e3bf4920-6976-4c4d-b371-a82436adabb4\",\n                \"first_name\": \"abcde\",\n                \"last_name\": \"sda\",\n                \"email\": \"df@gmail.com\",\n                \"password\": \"$2a$10$LMKP7JfWjbc97.Nai90yPeWNIVGt9YLVx6e2IohY5zxc9SRpxWaD6\",\n                \"username\": \"abcd1234\",\n                \"mobile_no\": \"9112345678902\",\n                \"otp\": null,\n                \"photo\": \"photo-1655363734913-170322714.png\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-16T07:15:35.000Z\",\n                \"updatedAt\": \"2022-06-16T07:15:35.000Z\"\n            }\n        ]\n    },\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "address/delete/:addressId",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/address/delete/:addressId",
+                            "variable": [
+                                {
+                                    "id": "addressId",
+                                    "key": "addressId",
+                                    "value": "possimus",
+                                    "description": "The ID of the address."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "address/edit",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/address/edit"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "address/getAll",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/address/getAll"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "cart/buy",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/cart/buy"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "cart/delete/:cartId",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/cart/delete/:cartId",
+                            "variable": [
+                                {
+                                    "id": "cartId",
+                                    "key": "cartId",
+                                    "value": "est",
+                                    "description": "The ID of the cart."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "cart/get",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/cart/get"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "order/cart",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/order/cart"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "order/track/:orderId",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/order/track/:orderId",
+                            "variable": [
+                                {
+                                    "id": "orderId",
+                                    "key": "orderId",
+                                    "value": "aut",
+                                    "description": "The ID of the order."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "payments/create",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/payments/create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "payments/edit",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/payments/edit"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "payments/delete/:paymentCardId",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/payments/delete/:paymentCardId",
+                            "variable": [
+                                {
+                                    "id": "paymentCardId",
+                                    "key": "paymentCardId",
+                                    "value": "sit",
+                                    "description": "The ID of the payment card."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "payments/get",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/payments/get"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"Please login first\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "coupon/add",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/coupon/add"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 500,\n    \"isSuccess\": false,\n    \"message\": \"Internal server error\",\n    \"data\": null,\n    \"error\": {\n        \"name\": \"SequelizeValidationError\",\n        \"errors\": [\n            {\n                \"message\": \"Coupon.name cannot be null\",\n                \"type\": \"notNull Violation\",\n                \"path\": \"name\",\n                \"value\": null,\n                \"origin\": \"CORE\",\n                \"instance\": {\n                    \"id\": \"93f3c122-a08c-4582-8ac0-66d0600813e6\",\n                    \"redeem_code\": \"7q4mdh77p1p6lqprykgz\",\n                    \"expire_date\": \"2022-06-21T10:00:52.868Z\",\n                    \"updatedAt\": \"2022-06-21T10:00:52.870Z\",\n                    \"createdAt\": \"2022-06-21T10:00:52.870Z\"\n                },\n                \"validatorKey\": \"is_null\",\n                \"validatorName\": null,\n                \"validatorArgs\": []\n            }\n        ]\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "coupon/edit",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/coupon/edit"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 500,\n    \"isSuccess\": false,\n    \"message\": \"Internal server error\",\n    \"data\": null,\n    \"error\": {}\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "coupon/delete/:couponId",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/coupon/delete/:couponId",
+                            "variable": [
+                                {
+                                    "id": "couponId",
+                                    "key": "couponId",
+                                    "value": "et",
+                                    "description": "The ID of the coupon."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 400,\n    \"isSuccess\": false,\n    \"message\": \"coupon is not exist\",\n    \"data\": null,\n    \"error\": \"Bad Request Error is occured\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "coupon/getAll",
+                            "query": [],
+                            "raw": "http://{{baseUrl}}/coupon/getAll"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": null,
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "http://localhost:4200"
+                                },
+                                {
+                                    "key": "vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application/json; charset=utf-8"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 200,\n    \"isSuccess\": true,\n    \"message\": \"successfully getting data\",\n    \"data\": {\n        \"count\": 13,\n        \"currentPage\": 1,\n        \"totalPage\": 1,\n        \"paginatedData\": [\n            {\n                \"id\": \"4c2b5a61-8120-414a-8e3a-3c564188a204\",\n                \"redeem_code\": \"t2lflxzk9dwrmmfyqv7k\",\n                \"name\": \"10% Cashback on sell any electronics\",\n                \"percentage\": 10,\n                \"discount\": 0,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T07:30:43.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T07:30:43.000Z\",\n                \"updatedAt\": \"2022-06-21T07:30:43.000Z\"\n            },\n            {\n                \"id\": \"50b8ecbe-8854-4898-b760-33f38dd36e8a\",\n                \"redeem_code\": \"79ba09nd11e3xqpy3n7j\",\n                \"name\": \"10Rs Cashback on HDFC collect\",\n                \"percentage\": 0,\n                \"discount\": 10,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T07:28:45.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T07:28:45.000Z\",\n                \"updatedAt\": \"2022-06-21T07:28:45.000Z\"\n            },\n            {\n                \"id\": \"5b8d94ad-5371-4607-9d2c-1987782f676c\",\n                \"redeem_code\": \"plmxcc284zit49jz97j0\",\n                \"name\": \"100Rs on all activate sells\",\n                \"percentage\": 0,\n                \"discount\": 100,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T07:31:25.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T07:31:25.000Z\",\n                \"updatedAt\": \"2022-06-21T07:31:25.000Z\"\n            },\n            {\n                \"id\": \"6673204b-0422-4c57-a3a3-0b559bf37978\",\n                \"redeem_code\": \"1o7o3hjz948bozs5js3j\",\n                \"name\": \"Rs 20 on sell product by BOB credit card\",\n                \"percentage\": 0,\n                \"discount\": 20,\n                \"term_condition\": \"nition for the mat-table. Captures the templat\",\n                \"expire_date\": \"2022-06-21T09:47:42.000Z\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-21T09:47:42.000Z\",\n                \"updatedAt\": \"2022-06-21T09:47:42.000Z\"\n            },\n            {\n                \"id\": \"71cf04df-2a88-4335-b151-67b113fba76a\",\n                \"redeem_code\": \"sl4qgwpihnik1egpyafc\",\n                \"name\": \"50 Rs. cashback\",\n                \"percentage\": 0,\n                \"discount\": 50,\n                \"term_condition\": \"this coupon can be used for only for all user\",\n                \"expire_date\": \"2022-07-11T06:00:44.000Z\",\n                \"status\": 2,\n                \"createdAt\": \"2022-06-21T06:00:44.000Z\",\n                \"updatedAt\": \"2022-06-21T06:00:44.000Z\"\n            },\n            {\n                \"id\": \"7f6a54d5-3966-4eea-9e34-24173efac616\",\n                \"redeem_code\": \"vbzt38cpot7lqqlr0qu9\",\n                \"name\": \"Flat 50% cashback on sell Fruits\",\n                \"percentage\": 50,\n                \"discount\": 0,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T07:28:03.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T07:28:03.000Z\",\n                \"updatedAt\": \"2022-06-21T07:28:03.000Z\"\n            },\n            {\n                \"id\": \"8384bde5-2de1-46aa-8cf2-d5f6575bb4cf\",\n                \"redeem_code\": \"o0q0l87k1ryqsiflxy9b\",\n                \"name\": \"10% off on HDFC credit card\",\n                \"percentage\": 10,\n                \"discount\": 0,\n                \"term_condition\": \"this coupon can be used for only for all user\",\n                \"expire_date\": \"2022-07-11T06:00:13.000Z\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-21T06:00:13.000Z\",\n                \"updatedAt\": \"2022-06-21T06:00:13.000Z\"\n            },\n            {\n                \"id\": \"84342032-c4ec-4ac5-88a6-5bd5fc20910e\",\n                \"redeem_code\": \"ls2wsukk2dmb3w9kxiqz\",\n                \"name\": \"500Rs cashback on SBI debit card\",\n                \"percentage\": 0,\n                \"discount\": 500,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T07:29:31.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T07:29:31.000Z\",\n                \"updatedAt\": \"2022-06-21T07:29:31.000Z\"\n            },\n            {\n                \"id\": \"98a5b98d-6536-4f61-9963-a07eba833f9f\",\n                \"redeem_code\": \"70atv14xup77kx0lipop\",\n                \"name\": \"sdas\",\n                \"percentage\": 12,\n                \"discount\": 0,\n                \"term_condition\": \"weqwew\",\n                \"expire_date\": \"2022-06-21T09:01:48.000Z\",\n                \"status\": 0,\n                \"createdAt\": \"2022-06-21T09:01:48.000Z\",\n                \"updatedAt\": \"2022-06-21T09:01:48.000Z\"\n            },\n            {\n                \"id\": \"b96fae59-8a2a-421c-9fc3-c7dd376dd8e5\",\n                \"redeem_code\": \"rlyrnqj6nn416oiyf3tf\",\n                \"name\": \"5% off on UPI\",\n                \"percentage\": 5,\n                \"discount\": 0,\n                \"term_condition\": \"inition for the mat-table. Captures the templat\",\n                \"expire_date\": \"2022-06-21T09:50:13.000Z\",\n                \"status\": 3,\n                \"createdAt\": \"2022-06-21T09:50:13.000Z\",\n                \"updatedAt\": \"2022-06-21T09:50:13.000Z\"\n            },\n            {\n                \"id\": \"c7448d42-9b26-49f4-9c3a-52d606e597d8\",\n                \"redeem_code\": \"u070gpig4nwv1egbximi\",\n                \"name\": \"flat $20 on each product\",\n                \"percentage\": 20,\n                \"discount\": 0,\n                \"term_condition\": \"We can access the order query parameter like this:\",\n                \"expire_date\": \"2022-06-21T09:20:11.000Z\",\n                \"status\": 3,\n                \"createdAt\": \"2022-06-21T09:20:11.000Z\",\n                \"updatedAt\": \"2022-06-21T09:20:11.000Z\"\n            },\n            {\n                \"id\": \"d61421b1-d8d2-47f5-a685-89fa2b1353f1\",\n                \"redeem_code\": \"2phggiicbbwgkfdhpidx\",\n                \"name\": \"200 off on ICIC credit card\",\n                \"percentage\": 0,\n                \"discount\": 200,\n                \"term_condition\": \"this coupon can be used for only for all user\",\n                \"expire_date\": \"2022-07-11T05:59:52.000Z\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-21T05:59:52.000Z\",\n                \"updatedAt\": \"2022-06-21T05:59:52.000Z\"\n            },\n            {\n                \"id\": \"e94b7a1b-a1e5-421f-9c2e-43943335ef94\",\n                \"redeem_code\": \"55ecpvxu8kzhwpw3fnd4\",\n                \"name\": \"20% disc on sell dress\",\n                \"percentage\": 20,\n                \"discount\": 0,\n                \"term_condition\": \"That's the right way to use the element, you must have\",\n                \"expire_date\": \"2022-06-21T09:04:54.000Z\",\n                \"status\": 1,\n                \"createdAt\": \"2022-06-21T09:04:54.000Z\",\n                \"updatedAt\": \"2022-06-21T09:04:54.000Z\"\n            }\n        ]\n    },\n    \"error\": null\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

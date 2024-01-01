@@ -1,0 +1,544 @@
+name: Product
+endpoints:
+  - uri: /product/create
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      name:
+        name: name
+        type: string
+        required: true
+        description: name of product.
+        example: food
+      small_desc:
+        name: small_desc
+        type: string
+        required: true
+        description: small description of product.
+        example: atque
+      long_desc:
+        name: long_desc
+        type: string
+        required: true
+        description: long description of product
+        example: incidunt
+      image:
+        name: image
+        type: string
+        required: true
+        description: this is file.
+        example: numquam
+      status_id:
+        name: status_id
+        type: uuid
+        required: true
+        description: ''
+        example: tenetur
+      categories:
+        name: categories
+        type: string
+        required: true
+        description: you can provide multiple categories too.
+        example: >-
+          c30af3d1-d6b8-4a90-b58e-49e124431f71,d30af3d1-d8b8-4a90-b58e-49e12551f71
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/update
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      id:
+        name: id
+        type: uuid
+        required: true
+        description: ID of product
+        example: quo
+      name:
+        name: name
+        type: string
+        required: true
+        description: name of Product.
+        example: food
+      small_desc:
+        name: small_desc
+        type: string
+        required: true
+        description: small description of product.
+        example: id
+      long_desc:
+        name: long_desc
+        type: string
+        required: true
+        description: long description of product
+        example: molestiae
+      image:
+        name: image
+        type: image
+        required: true
+        description: this is file.
+        example: sit
+      status_id:
+        name: status_id
+        type: uuid
+        required: true
+        description: ''
+        example: ea
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: '/product/getDetails/:productId?'
+    httpMethods:
+      - GET
+    metadata:
+      title: null
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      productId:
+        name: productId
+        type: uuid
+        required: false
+        description: ''
+        example: minima
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: '/product/delete/:productID'
+    httpMethods:
+      - DELETE
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      productID:
+        name: productID
+        example: neque
+        required: true
+        type: string
+        description: ''
+        match: ':productID'
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/getAll
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/addPriceQuantity
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      user_id:
+        name: user_id
+        type: uuid
+        required: true
+        description: ''
+        example: provident
+      product_id:
+        name: product_id
+        type: uuid
+        required: true
+        description: ''
+        example: quibusdam
+      price:
+        name: price
+        type: number
+        required: true
+        description: ''
+        example: 77374
+      quantity:
+        name: quantity
+        type: number
+        required: true
+        description: ''
+        example: 68418
+      brand:
+        name: brand
+        type: string
+        required: true
+        description: ''
+        example: in
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/addImages
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      product_id:
+        name: product_id
+        type: uuid
+        required: true
+        description: ''
+        example: sapiente
+      images:
+        name: images
+        type: image
+        required: true
+        description: other images of product
+        example: sunt
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/updateSpecs
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      id:
+        name: id
+        type: uuid
+        required: true
+        description: product seller id
+        example: beatae
+      product_id:
+        name: product_id
+        type: uuid
+        required: true
+        description: id of product
+        example: aut
+      price:
+        name: price
+        type: number
+        required: true
+        description: new price of product
+        example: 84557
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": "Please login first",
+              "data": null,
+              "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /product/filter
+    httpMethods:
+      - GET
+    metadata:
+      title: null
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters:
+      name:
+        name: name
+        type: string
+        required: false
+        description: Category's Name
+        example: natus
+      seller:
+        name: seller
+        type: string
+        required: false
+        description: name of seller brand
+        example: aut
+      sortBy:
+        name: sortBy
+        type: string
+        required: false
+        description: ''
+        example: 'price-desc, price-asc, oldest, newest'
+      minPrice:
+        name: minPrice
+        type: number
+        required: false
+        description: ''
+        example: 10483
+      maxPrice:
+        name: maxPrice
+        type: number
+        required: false
+        description: ''
+        example: 10676
+      limit:
+        name: limit
+        type: number
+        required: false
+        description: ''
+        example: 14048
+      page:
+        name: page
+        type: number
+        required: false
+        description: ''
+        example: 2755
+    bodyParameters: {}
+    responses:
+      - status: 500
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeDatabaseError",
+                  "parent": {
+                      "code": "ER_BAD_FIELD_ERROR",
+                      "errno": 1054,
+                      "sqlState": "42S22",
+                      "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
+                      "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
+                  },
+                  "original": {
+                      "code": "ER_BAD_FIELD_ERROR",
+                      "errno": 1054,
+                      "sqlState": "42S22",
+                      "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
+                      "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
+                  },
+                  "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';",
+                  "parameters": {}
+              }
+          }
+    responseFields: {}
+  - uri: /product/search
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 500
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {}
+          }
+    responseFields: {}
+  - uri: /product/suggestions
+    httpMethods:
+      - GET
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters:
+      name:
+        name: name
+        type: string
+        required: false
+        description: searching word
+        example: corporis
+    bodyParameters: {}
+    responses:
+      - status: 200
+        description: ''
+        headers:
+          access-control-allow-origin: 'http://localhost:4200'
+          vary: Origin
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 200,
+              "isSuccess": true,
+              "message": "suggestions",
+              "data": [],
+              "error": null
+          }
+    responseFields: {}
