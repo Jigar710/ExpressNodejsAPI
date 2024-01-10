@@ -22,11 +22,11 @@ app.use(
     // credentials: true,
   })
 );
-app.use("/api/", indexRouter);
+app.use("/", indexRouter);
 
 port = env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(clc.blackBright(`ENV : ${process.env.NODE_ENV}`));
-  console.log(clc.bgBlueBright(`server is running on port:${port}....`));
+  console.log(clc.blueBright(`server is running on port:${port}....`));
 });

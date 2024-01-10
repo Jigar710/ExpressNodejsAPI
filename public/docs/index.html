@@ -64,7 +64,7 @@
         </ul>
     
         <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 21, 2022</li>
+            <li>Last updated: June 30, 2022</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -115,7 +115,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     "email": "testemail",
     "password": "testpassword@123",
     "confirm_password": "testpassword@123",
-    "role": "Customer"
+    "role": "Customer",
+    "image": "ut"
 }'
 </code></pre>
 
@@ -137,7 +138,8 @@ const body = {
     "email": "testemail",
     "password": "testpassword@123",
     "confirm_password": "testpassword@123",
-    "role": "Customer"
+    "role": "Customer",
+    "image": "ut"
 }
 
 fetch(url, {
@@ -163,8 +165,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -177,7 +178,8 @@ content-type: application/json; charset=utf-8 </code></pre>
     "isSuccess": false,
     "message": [
         "\"email\" must be a valid email",
-        "mobile number is required"
+        "mobile number is required",
+        "\"image\" is not allowed"
     ],
     "data": null,
     "error": "Bad Request Error is occured"
@@ -377,6 +379,201 @@ content-type: application/json; charset=utf-8 </code></pre>
             </p>
         
 
+    
+    
+            <p>
+                <b><code>image</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="image"
+               data-endpoint="POST-user-signup"
+               data-component="body" required hidden>
+    
+
+<br>
+<p>profile picture</p>
+            </p>
+        
+
+
+</form>
+
+
+
+    
+        
+<h2 id="User-POST-user-mobileEntry">POST /user/mobileEntry</h2>
+
+<p>
+
+</p>
+
+
+
+<span id="example-requests-POST-user-mobileEntry">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request POST \
+    "http://localhost:3003/user/mobileEntry"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data '{
+    "mobileNo": "+918000711872"
+}'
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "http://localhost:3003/user/mobileEntry"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+const body = {
+    "mobileNo": "+918000711872"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body),
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-POST-user-mobileEntry">
+
+
+<blockquote>Example response (500):</blockquote>
+
+
+<details class="annotation">
+    <summary>
+        <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+    </summary>
+    <pre><code class="language-http">
+access-control-allow-origin: *
+content-type: application/json; charset=utf-8 </code></pre>
+</details> 
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+    "status": "ok",
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
+}</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-POST-user-mobileEntry" hidden>
+    <blockquote>Received response<span id="execution-response-status-POST-user-mobileEntry"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POST-user-mobileEntry"></code></pre>
+</span>
+<span id="execution-error-POST-user-mobileEntry" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POST-user-mobileEntry"></code></pre>
+</span>
+
+<form id="form-POST-user-mobileEntry"
+      data-method="POST"
+      data-path="/user/mobileEntry"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POST-user-mobileEntry', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-POST-user-mobileEntry"
+            onclick="tryItOut('POST-user-mobileEntry');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-POST-user-mobileEntry"
+            onclick="cancelTryOut('POST-user-mobileEntry');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-POST-user-mobileEntry" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-black">POST</small>
+
+
+    <b><code>/user/mobileEntry</code></b>
+</p>
+
+
+
+
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+
+    
+    
+            <p>
+                <b><code>mobileNo</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="mobileNo"
+               data-endpoint="POST-user-mobileEntry"
+               data-component="body" required hidden>
+    
+
+<br>
+<p>mobile number of user.</p>
+            </p>
+        
+
 
 </form>
 
@@ -438,7 +635,7 @@ fetch(url, {
 <span id="example-responses-POST-user-login">
 
 
-<blockquote>Example response (401):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -446,8 +643,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -455,12 +651,30 @@ content-type: application/json; charset=utf-8 </code></pre>
  
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
-    "status": "unauthorized",
-    "statusCode": 401,
+    "status": "ok",
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Invalid credentials",
+    "message": "Internal server error",
     "data": null,
-    "error": null
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -564,7 +778,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
     
         
-<h2 id="User-POST-user-mobileEntry">POST /user/mobileEntry</h2>
+<h2 id="User-POST-user-update">POST /user/update</h2>
 
 <p>
 
@@ -572,24 +786,25 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 
-<span id="example-requests-POST-user-mobileEntry">
+<span id="example-requests-POST-user-update">
 <blockquote>Example request:</blockquote>
 
 
 
 <pre><code class="bash language-bash">curl --request POST \
-    "http://localhost:3003/user/mobileEntry"  \
+    "http://localhost:3003/user/update"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "mobileNo": "+918000711872"
+    "username": "testusername",
+    "email": "testemail"
 }'
 </code></pre>
 
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/user/mobileEntry"
+    "http://localhost:3003/user/update"
 );
 
 const headers = {
@@ -598,7 +813,8 @@ const headers = {
 };
 
 const body = {
-    "mobileNo": "+918000711872"
+    "username": "testusername",
+    "email": "testemail"
 }
 
 fetch(url, {
@@ -613,7 +829,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POST-user-mobileEntry">
+<span id="example-responses-POST-user-update">
 
 
 <blockquote>Example response (200):</blockquote>
@@ -624,8 +840,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -634,53 +849,54 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "successfully otp send",
-    "data": {
-        "otp": "7977"
-    },
-    "error": null
+    "statusCode": 400,
+    "isSuccess": false,
+    "message": [
+        "id is required",
+        "\"email\" must be a valid email"
+    ],
+    "data": null,
+    "error": "Bad Request Error is occured"
 }</code>
  </pre>
 
 
 </span>
-<span id="execution-results-POST-user-mobileEntry" hidden>
-    <blockquote>Received response<span id="execution-response-status-POST-user-mobileEntry"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POST-user-mobileEntry"></code></pre>
+<span id="execution-results-POST-user-update" hidden>
+    <blockquote>Received response<span id="execution-response-status-POST-user-update"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POST-user-update"></code></pre>
 </span>
-<span id="execution-error-POST-user-mobileEntry" hidden>
+<span id="execution-error-POST-user-update" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POST-user-mobileEntry"></code></pre>
+    <pre><code id="execution-error-message-POST-user-update"></code></pre>
 </span>
 
-<form id="form-POST-user-mobileEntry"
+<form id="form-POST-user-update"
       data-method="POST"
-      data-path="/user/mobileEntry"
+      data-path="/user/update"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POST-user-mobileEntry', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POST-user-update', this);">
 <h3>
     Request&nbsp;
     
     <button
             type="button"
             style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-tryout-POST-user-mobileEntry"
-            onclick="tryItOut('POST-user-mobileEntry');">Try it out ⚡</button>
+            id="btn-tryout-POST-user-update"
+            onclick="tryItOut('POST-user-update');">Try it out ⚡</button>
     <button
             type="button"
             style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-canceltryout-POST-user-mobileEntry"
-            onclick="cancelTryOut('POST-user-mobileEntry');" hidden>Cancel</button>&nbsp;&nbsp;
+            id="btn-canceltryout-POST-user-update"
+            onclick="cancelTryOut('POST-user-update');" hidden>Cancel</button>&nbsp;&nbsp;
     <button
             type="submit"
             style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-executetryout-POST-user-mobileEntry" hidden>Send Request 💥</button>
+            id="btn-executetryout-POST-user-update" hidden>Send Request 💥</button>
     
 </h3>
 
@@ -688,7 +904,7 @@ content-type: application/json; charset=utf-8 </code></pre>
     <small class="badge badge-black">POST</small>
 
 
-    <b><code>/user/mobileEntry</code></b>
+    <b><code>/user/update</code></b>
 </p>
 
 
@@ -700,20 +916,40 @@ content-type: application/json; charset=utf-8 </code></pre>
     
     
             <p>
-                <b><code>mobileNo</code></b>&nbsp;&nbsp;<small>string</small>
+                <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>
 
 
 
 
     
         <input type="text"
-               name="mobileNo"
-               data-endpoint="POST-user-mobileEntry"
+               name="username"
+               data-endpoint="POST-user-update"
                data-component="body" required hidden>
     
 
 <br>
-<p>mobile number of user.</p>
+<p>user name of user.</p>
+            </p>
+        
+
+    
+    
+            <p>
+                <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>
+
+
+
+
+    
+        <input type="text"
+               name="email"
+               data-endpoint="POST-user-update"
+               data-component="body" required hidden>
+    
+
+<br>
+<p>email of user.</p>
             </p>
         
 
@@ -782,7 +1018,7 @@ fetch(url, {
 <span id="example-responses-POST-user-change">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -790,8 +1026,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -800,11 +1035,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -947,189 +1200,6 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
     
-        
-<h2 id="User-POST-user-update">POST /user/update</h2>
-
-<p>
-
-</p>
-
-
-
-<span id="example-requests-POST-user-update">
-<blockquote>Example request:</blockquote>
-
-
-
-<pre><code class="bash language-bash">curl --request POST \
-    "http://localhost:3003/user/update"  \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data '{
-    "username": "testusername",
-    "email": "testemail"
-}'
-</code></pre>
-
-
-
-<pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/user/update"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-const body = {
-    "username": "testusername",
-    "email": "testemail"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify(body),
-})
-.then(response =&gt; response.json())
-.then(json =&gt; console.log(json));
-</code></pre>
-
-
-</span>
-
-<span id="example-responses-POST-user-update">
-
-
-<blockquote>Example response (200):</blockquote>
-
-
-<details class="annotation">
-    <summary>
-        <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-    </summary>
-    <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
-content-type: application/json; charset=utf-8 </code></pre>
-</details> 
-
-<pre>
- 
-<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
-<code class="language-json">{
-    "status": "ok",
-    "statusCode": 400,
-    "isSuccess": false,
-    "message": [
-        "id is required",
-        "\"email\" must be a valid email"
-    ],
-    "data": null,
-    "error": "Bad Request Error is occured"
-}</code>
- </pre>
-
-
-</span>
-<span id="execution-results-POST-user-update" hidden>
-    <blockquote>Received response<span id="execution-response-status-POST-user-update"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POST-user-update"></code></pre>
-</span>
-<span id="execution-error-POST-user-update" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POST-user-update"></code></pre>
-</span>
-
-<form id="form-POST-user-update"
-      data-method="POST"
-      data-path="/user/update"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POST-user-update', this);">
-<h3>
-    Request&nbsp;
-    
-    <button
-            type="button"
-            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-tryout-POST-user-update"
-            onclick="tryItOut('POST-user-update');">Try it out ⚡</button>
-    <button
-            type="button"
-            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-canceltryout-POST-user-update"
-            onclick="cancelTryOut('POST-user-update');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button
-            type="submit"
-            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-            id="btn-executetryout-POST-user-update" hidden>Send Request 💥</button>
-    
-</h3>
-
-<p>
-    <small class="badge badge-black">POST</small>
-
-
-    <b><code>/user/update</code></b>
-</p>
-
-
-
-
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-
-    
-    
-            <p>
-                <b><code>username</code></b>&nbsp;&nbsp;<small>string</small>
-
-
-
-
-    
-        <input type="text"
-               name="username"
-               data-endpoint="POST-user-update"
-               data-component="body" required hidden>
-    
-
-<br>
-<p>user name of user.</p>
-            </p>
-        
-
-    
-    
-            <p>
-                <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>
-
-
-
-
-    
-        <input type="text"
-               name="email"
-               data-endpoint="POST-user-update"
-               data-component="body" required hidden>
-    
-
-<br>
-<p>email of user.</p>
-            </p>
-        
-
-
-</form>
-
-
-
-    
 
     <h1 id="Role">Role</h1>
     <p>
@@ -1190,7 +1260,7 @@ fetch(url, {
 <span id="example-responses-POST-role-create">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -1198,8 +1268,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -1208,11 +1277,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -1322,9 +1409,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Accept: application/json" \
     --data '{
     "name": "food",
-    "small_desc": "amet",
-    "long_desc": "est",
-    "image": "voluptates"
+    "small_desc": "qui",
+    "long_desc": "odit",
+    "image": "omnis"
 }'
 </code></pre>
 
@@ -1341,9 +1428,9 @@ const headers = {
 
 const body = {
     "name": "food",
-    "small_desc": "amet",
-    "long_desc": "est",
-    "image": "voluptates"
+    "small_desc": "qui",
+    "long_desc": "odit",
+    "image": "omnis"
 }
 
 fetch(url, {
@@ -1369,8 +1456,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -1381,7 +1467,11 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "long description must have atleast 4 letters",
+        "long description must have atleast 20 letters",
+        "\"image\" is not allowed"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -1547,9 +1637,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     --data '{
     "id": "78196526-7254-4abc-a101-7bc2ba6ba89c",
     "name": "food",
-    "small_desc": "occaecati",
-    "long_desc": "vel",
-    "image": "explicabo"
+    "small_desc": "sint",
+    "long_desc": "tenetur",
+    "image": "est"
 }'
 </code></pre>
 
@@ -1567,9 +1657,9 @@ const headers = {
 const body = {
     "id": "78196526-7254-4abc-a101-7bc2ba6ba89c",
     "name": "food",
-    "small_desc": "occaecati",
-    "long_desc": "vel",
-    "image": "explicabo"
+    "small_desc": "sint",
+    "long_desc": "tenetur",
+    "image": "est"
 }
 
 fetch(url, {
@@ -1595,8 +1685,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -1607,7 +1696,10 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "long description must have atleast 20 letters",
+        "\"image\" is not allowed"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -1787,7 +1879,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/category/getDetails/non"  \
+    --get "http://localhost:3003/category/getDetails/enim"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -1795,7 +1887,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/category/getDetails/non"
+    "http://localhost:3003/category/getDetails/enim"
 );
 
 const headers = {
@@ -1818,7 +1910,7 @@ fetch(url, {
 <span id="example-responses-GET-category-getDetails--categoryID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -1826,8 +1918,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -1836,11 +1927,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -1967,7 +2076,7 @@ fetch(url, {
 <span id="example-responses-GET-category-getAllcategories">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -1975,8 +2084,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -1985,11 +2093,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -2064,7 +2190,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/category/getAllProducts/cumque"  \
+    --get "http://localhost:3003/category/getAllProducts/tenetur"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -2072,7 +2198,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/category/getAllProducts/cumque"
+    "http://localhost:3003/category/getAllProducts/tenetur"
 );
 
 const headers = {
@@ -2095,7 +2221,7 @@ fetch(url, {
 <span id="example-responses-GET-category-getAllProducts--categoryID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -2103,8 +2229,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -2113,11 +2238,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -2213,7 +2356,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/category/delete/molestiae"  \
+    "http://localhost:3003/category/delete/fugit"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -2221,7 +2364,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/category/delete/molestiae"
+    "http://localhost:3003/category/delete/fugit"
 );
 
 const headers = {
@@ -2244,7 +2387,7 @@ fetch(url, {
 <span id="example-responses-DELETE-category-delete--categoryID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -2252,8 +2395,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -2262,11 +2404,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -2374,10 +2534,10 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Accept: application/json" \
     --data '{
     "name": "food",
-    "small_desc": "atque",
-    "long_desc": "incidunt",
-    "image": "numquam",
-    "status_id": "tenetur",
+    "small_desc": "fugit",
+    "long_desc": "qui",
+    "image": "perspiciatis",
+    "status_id": "modi",
     "categories": "c30af3d1-d6b8-4a90-b58e-49e124431f71,d30af3d1-d8b8-4a90-b58e-49e12551f71"
 }'
 </code></pre>
@@ -2395,10 +2555,10 @@ const headers = {
 
 const body = {
     "name": "food",
-    "small_desc": "atque",
-    "long_desc": "incidunt",
-    "image": "numquam",
-    "status_id": "tenetur",
+    "small_desc": "fugit",
+    "long_desc": "qui",
+    "image": "perspiciatis",
+    "status_id": "modi",
     "categories": "c30af3d1-d6b8-4a90-b58e-49e124431f71,d30af3d1-d8b8-4a90-b58e-49e12551f71"
 }
 
@@ -2425,8 +2585,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -2437,7 +2596,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "long description must have atleast 20 letters"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -2641,12 +2802,12 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "id": "quo",
+    "id": "perferendis",
     "name": "food",
-    "small_desc": "id",
-    "long_desc": "molestiae",
-    "image": "sit",
-    "status_id": "ea"
+    "small_desc": "rerum",
+    "long_desc": "et",
+    "image": "explicabo",
+    "status_id": "atque"
 }'
 </code></pre>
 
@@ -2662,12 +2823,12 @@ const headers = {
 };
 
 const body = {
-    "id": "quo",
+    "id": "perferendis",
     "name": "food",
-    "small_desc": "id",
-    "long_desc": "molestiae",
-    "image": "sit",
-    "status_id": "ea"
+    "small_desc": "rerum",
+    "long_desc": "et",
+    "image": "explicabo",
+    "status_id": "atque"
 }
 
 fetch(url, {
@@ -2693,8 +2854,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -2705,7 +2865,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "long description must have atleast 20 letters"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -2905,7 +3067,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/product/getDetails/minima"  \
+    --get "http://localhost:3003/product/getDetails/ipsam"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -2913,7 +3075,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/product/getDetails/minima"
+    "http://localhost:3003/product/getDetails/ipsam"
 );
 
 const headers = {
@@ -2936,7 +3098,7 @@ fetch(url, {
 <span id="example-responses-GET-product-getDetails--productId-">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -2944,8 +3106,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -2954,11 +3115,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -3054,7 +3233,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/product/delete/neque"  \
+    "http://localhost:3003/product/delete/dolorum"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -3062,7 +3241,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/product/delete/neque"
+    "http://localhost:3003/product/delete/dolorum"
 );
 
 const headers = {
@@ -3085,7 +3264,7 @@ fetch(url, {
 <span id="example-responses-DELETE-product-delete--productID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -3093,8 +3272,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -3103,11 +3281,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -3234,7 +3430,7 @@ fetch(url, {
 <span id="example-responses-GET-product-getAll">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -3242,8 +3438,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -3252,11 +3447,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -3335,11 +3548,11 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "user_id": "provident",
-    "product_id": "quibusdam",
-    "price": 77374,
-    "quantity": 68418,
-    "brand": "in"
+    "user_id": "quasi",
+    "product_id": "itaque",
+    "price": 67228,
+    "quantity": 87545,
+    "brand": "veritatis"
 }'
 </code></pre>
 
@@ -3355,11 +3568,11 @@ const headers = {
 };
 
 const body = {
-    "user_id": "provident",
-    "product_id": "quibusdam",
-    "price": 77374,
-    "quantity": 68418,
-    "brand": "in"
+    "user_id": "quasi",
+    "product_id": "itaque",
+    "price": 67228,
+    "quantity": 87545,
+    "brand": "veritatis"
 }
 
 fetch(url, {
@@ -3377,7 +3590,7 @@ fetch(url, {
 <span id="example-responses-POST-product-addPriceQuantity">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -3385,8 +3598,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -3395,11 +3607,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -3581,8 +3811,8 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "product_id": "sapiente",
-    "images": "sunt"
+    "product_id": "sed",
+    "images": "incidunt"
 }'
 </code></pre>
 
@@ -3598,8 +3828,8 @@ const headers = {
 };
 
 const body = {
-    "product_id": "sapiente",
-    "images": "sunt"
+    "product_id": "sed",
+    "images": "incidunt"
 }
 
 fetch(url, {
@@ -3617,7 +3847,7 @@ fetch(url, {
 <span id="example-responses-POST-product-addImages">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -3625,8 +3855,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -3635,11 +3864,11 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {}
 }</code>
  </pre>
 
@@ -3761,9 +3990,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "id": "beatae",
-    "product_id": "aut",
-    "price": 84557
+    "id": "qui",
+    "product_id": "voluptas",
+    "price": 50992
 }'
 </code></pre>
 
@@ -3779,9 +4008,9 @@ const headers = {
 };
 
 const body = {
-    "id": "beatae",
-    "product_id": "aut",
-    "price": 84557
+    "id": "qui",
+    "product_id": "voluptas",
+    "price": 50992
 }
 
 fetch(url, {
@@ -3799,7 +4028,7 @@ fetch(url, {
 <span id="example-responses-POST-product-updateSpecs">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -3807,8 +4036,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -3817,11 +4045,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -3959,7 +4205,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/product/filtername=natus&amp;seller=aut&amp;sortBy=price-desc%2C%20price-asc%2C%20oldest%2C%20newest&amp;minPrice=10483&amp;maxPrice=10676&amp;limit=14048&amp;page=2755"  \
+    --get "http://localhost:3003/product/filtername=quas&amp;seller=qui&amp;sortBy=price-desc%2C%20price-asc%2C%20oldest%2C%20newest&amp;minPrice=14838&amp;maxPrice=32781&amp;limit=58883&amp;page=462"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -3971,13 +4217,13 @@ content-type: application/json; charset=utf-8 </code></pre>
 );
 
 const params = {{
-    "name": "natus",
-    "seller": "aut",
+    "name": "quas",
+    "seller": "qui",
     "sortBy": "price-desc, price-asc, oldest, newest",
-    "minPrice": "10483",
-    "maxPrice": "10676",
-    "limit": "14048",
-    "page": "2755",
+    "minPrice": "14838",
+    "maxPrice": "32781",
+    "limit": "58883",
+    "page": "462",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4011,8 +4257,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4026,23 +4271,23 @@ content-type: application/json; charset=utf-8 </code></pre>
     "message": "Internal server error",
     "data": null,
     "error": {
-        "name": "SequelizeDatabaseError",
+        "name": "SequelizeConnectionRefusedError",
         "parent": {
-            "code": "ER_BAD_FIELD_ERROR",
-            "errno": 1054,
-            "sqlState": "42S22",
-            "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
-            "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
         },
         "original": {
-            "code": "ER_BAD_FIELD_ERROR",
-            "errno": 1054,
-            "sqlState": "42S22",
-            "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
-            "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
-        },
-        "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';",
-        "parameters": {}
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
     }
 }</code>
  </pre>
@@ -4286,8 +4531,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4375,7 +4619,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/product/suggestionsname=corporis"  \
+    --get "http://localhost:3003/product/suggestionsname=dolores"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -4387,7 +4631,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 );
 
 const params = {{
-    "name": "corporis",
+    "name": "dolores",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4413,7 +4657,7 @@ fetch(url, {
 <span id="example-responses-GET-product-suggestions">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -4421,8 +4665,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4431,11 +4674,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "suggestions",
-    "data": [],
-    "error": null
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -4542,7 +4803,7 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "name": "necessitatibus"
+    "name": "qui"
 }'
 </code></pre>
 
@@ -4558,7 +4819,7 @@ const headers = {
 };
 
 const body = {
-    "name": "necessitatibus"
+    "name": "qui"
 }
 
 fetch(url, {
@@ -4576,7 +4837,7 @@ fetch(url, {
 <span id="example-responses-POST-status-create">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -4584,8 +4845,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4594,11 +4854,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -4700,8 +4978,8 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "id": "molestiae",
-    "name": "assumenda"
+    "id": "voluptatibus",
+    "name": "eligendi"
 }'
 </code></pre>
 
@@ -4717,8 +4995,8 @@ const headers = {
 };
 
 const body = {
-    "id": "molestiae",
-    "name": "assumenda"
+    "id": "voluptatibus",
+    "name": "eligendi"
 }
 
 fetch(url, {
@@ -4736,7 +5014,7 @@ fetch(url, {
 <span id="example-responses-POST-status-update">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -4744,8 +5022,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4754,11 +5031,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -4880,8 +5175,8 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "userId": "ut",
-    "status": 33868
+    "userId": "sed",
+    "status": 39959
 }'
 </code></pre>
 
@@ -4897,8 +5192,8 @@ const headers = {
 };
 
 const body = {
-    "userId": "ut",
-    "status": 33868
+    "userId": "sed",
+    "status": 39959
 }
 
 fetch(url, {
@@ -4924,8 +5219,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -4936,7 +5230,7 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "status is not valid",
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -5087,7 +5381,7 @@ fetch(url, {
 <span id="example-responses-GET-status-getAll">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -5095,8 +5389,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -5105,192 +5398,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "successfully getting all statuses",
-    "data": [
-        {
-            "id": "046d34a5-415d-49ad-b57d-12338f3a1058",
-            "name": null,
-            "createdAt": "2022-06-14T05:02:08.000Z",
-            "updatedAt": "2022-06-14T05:02:08.000Z"
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
         },
-        {
-            "id": "0760fa17-a491-43c1-a032-c954441e4954",
-            "name": null,
-            "createdAt": "2022-06-14T04:54:48.000Z",
-            "updatedAt": "2022-06-14T04:54:48.000Z"
-        },
-        {
-            "id": "09976a28-52b4-4e9c-9c7a-f4e4438715e3",
-            "name": null,
-            "createdAt": "2022-06-14T04:47:56.000Z",
-            "updatedAt": "2022-06-14T04:47:56.000Z"
-        },
-        {
-            "id": "0cf1b8e9-f73d-4373-8dd4-4166a604a566",
-            "name": null,
-            "createdAt": "2022-06-14T05:14:24.000Z",
-            "updatedAt": "2022-06-14T05:14:24.000Z"
-        },
-        {
-            "id": "22203aa3-8450-483f-85a3-ba3ae1c1cb3c",
-            "name": "Sold out",
-            "createdAt": "2022-06-14T04:24:42.000Z",
-            "updatedAt": "2022-06-14T04:24:42.000Z"
-        },
-        {
-            "id": "298cee5e-cf85-4083-8201-66e1913531fe",
-            "name": null,
-            "createdAt": "2022-06-14T04:43:20.000Z",
-            "updatedAt": "2022-06-14T04:43:20.000Z"
-        },
-        {
-            "id": "2eb81056-964d-460a-bc16-143735f1deda",
-            "name": null,
-            "createdAt": "2022-06-14T05:44:22.000Z",
-            "updatedAt": "2022-06-14T05:44:22.000Z"
-        },
-        {
-            "id": "3557e2b4-b051-4c7e-8036-60ddf6b9143b",
-            "name": null,
-            "createdAt": "2022-06-14T06:04:06.000Z",
-            "updatedAt": "2022-06-14T06:04:06.000Z"
-        },
-        {
-            "id": "3a8c1827-5e5b-4c00-aab3-a1022f6454f9",
-            "name": null,
-            "createdAt": "2022-06-14T05:09:46.000Z",
-            "updatedAt": "2022-06-14T05:09:46.000Z"
-        },
-        {
-            "id": "5b81e4f6-98b0-459c-a0b1-1a5ba5bc5a18",
-            "name": "quo",
-            "createdAt": "2022-06-14T06:30:50.000Z",
-            "updatedAt": "2022-06-14T06:30:50.000Z"
-        },
-        {
-            "id": "6bccdb5b-d74f-480e-b2e3-b2ba501924da",
-            "name": null,
-            "createdAt": "2022-06-14T05:08:28.000Z",
-            "updatedAt": "2022-06-14T05:08:28.000Z"
-        },
-        {
-            "id": "73ef7fe4-098f-476e-b4c7-7cdc13ba1643",
-            "name": null,
-            "createdAt": "2022-06-14T05:14:35.000Z",
-            "updatedAt": "2022-06-14T05:14:35.000Z"
-        },
-        {
-            "id": "873420c7-e60b-4b8b-acfe-af2f38383e41",
-            "name": "qui",
-            "createdAt": "2022-06-15T10:26:02.000Z",
-            "updatedAt": "2022-06-15T10:26:02.000Z"
-        },
-        {
-            "id": "8b9ff219-8b6b-4ab6-b46a-5de38bc1f32a",
-            "name": null,
-            "createdAt": "2022-06-14T05:20:08.000Z",
-            "updatedAt": "2022-06-14T05:20:08.000Z"
-        },
-        {
-            "id": "91e97959-35e6-4389-8462-dd2434b79bcc",
-            "name": null,
-            "createdAt": "2022-06-14T04:40:29.000Z",
-            "updatedAt": "2022-06-14T04:40:29.000Z"
-        },
-        {
-            "id": "92f972d6-12b6-4c35-8b58-b662214875a4",
-            "name": null,
-            "createdAt": "2022-06-14T05:32:45.000Z",
-            "updatedAt": "2022-06-14T05:32:45.000Z"
-        },
-        {
-            "id": "acb1f70f-944d-4661-9bda-090632873bdc",
-            "name": null,
-            "createdAt": "2022-06-14T04:39:04.000Z",
-            "updatedAt": "2022-06-14T04:39:04.000Z"
-        },
-        {
-            "id": "ae3396d9-a07c-4279-ba76-80a34e584a11",
-            "name": null,
-            "createdAt": "2022-06-14T05:58:52.000Z",
-            "updatedAt": "2022-06-14T05:58:52.000Z"
-        },
-        {
-            "id": "b2b03dab-7690-492a-a35f-c84f31502a0c",
-            "name": null,
-            "createdAt": "2022-06-14T04:56:34.000Z",
-            "updatedAt": "2022-06-14T04:56:34.000Z"
-        },
-        {
-            "id": "b62d2760-2702-4730-aa63-88f2530c6adc",
-            "name": null,
-            "createdAt": "2022-06-14T05:11:10.000Z",
-            "updatedAt": "2022-06-14T05:11:10.000Z"
-        },
-        {
-            "id": "c743b263-ca4e-4d0d-aa5c-ba1d1b48e3f9",
-            "name": "totam",
-            "createdAt": "2022-06-14T06:33:04.000Z",
-            "updatedAt": "2022-06-14T06:33:04.000Z"
-        },
-        {
-            "id": "cc3faeb5-7615-46fe-bf31-ab81cc744ce4",
-            "name": null,
-            "createdAt": "2022-06-14T05:00:44.000Z",
-            "updatedAt": "2022-06-14T05:00:44.000Z"
-        },
-        {
-            "id": "d2d12cc8-8b74-4ec1-9c05-95ef41515f1a",
-            "name": null,
-            "createdAt": "2022-06-14T04:45:42.000Z",
-            "updatedAt": "2022-06-14T04:45:42.000Z"
-        },
-        {
-            "id": "d31de43a-6479-4f3b-bea1-3c518871cf10",
-            "name": null,
-            "createdAt": "2022-06-14T05:11:53.000Z",
-            "updatedAt": "2022-06-14T05:11:53.000Z"
-        },
-        {
-            "id": "eef591ce-f8b7-46fa-b1fd-93c0b45a2e9e",
-            "name": null,
-            "createdAt": "2022-06-14T05:13:13.000Z",
-            "updatedAt": "2022-06-14T05:13:13.000Z"
-        },
-        {
-            "id": "f14cce2c-a774-43df-9d0a-9ce53251ff42",
-            "name": "voluptatum",
-            "createdAt": "2022-06-14T06:29:52.000Z",
-            "updatedAt": "2022-06-14T06:29:52.000Z"
-        },
-        {
-            "id": "f2ef853a-5563-448e-bbbf-03a16e29b336",
-            "name": null,
-            "createdAt": "2022-06-14T05:13:50.000Z",
-            "updatedAt": "2022-06-14T05:13:50.000Z"
-        },
-        {
-            "id": "f3e568e9-7651-48f6-aa2d-00cbee5d9f96",
-            "name": null,
-            "createdAt": "2022-06-14T04:44:41.000Z",
-            "updatedAt": "2022-06-14T04:44:41.000Z"
-        },
-        {
-            "id": "f7cfb9d9-fd23-4482-a133-1da4b09b19e8",
-            "name": null,
-            "createdAt": "2022-06-14T04:45:37.000Z",
-            "updatedAt": "2022-06-14T04:45:37.000Z"
-        },
-        {
-            "id": "f99b2cbe-e94d-4468-90c3-c97c1c694f52",
-            "name": null,
-            "createdAt": "2022-06-14T05:01:34.000Z",
-            "updatedAt": "2022-06-14T05:01:34.000Z"
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
         }
-    ],
-    "error": null
+    }
 }</code>
  </pre>
 
@@ -5376,9 +5506,9 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "review": "accusamus",
-    "rating": 51913,
-    "product_id": "facilis"
+    "review": "qui",
+    "rating": 12957,
+    "product_id": "necessitatibus"
 }'
 </code></pre>
 
@@ -5394,9 +5524,9 @@ const headers = {
 };
 
 const body = {
-    "review": "accusamus",
-    "rating": 51913,
-    "product_id": "facilis"
+    "review": "qui",
+    "rating": 12957,
+    "product_id": "necessitatibus"
 }
 
 fetch(url, {
@@ -5414,7 +5544,7 @@ fetch(url, {
 <span id="example-responses-POST-review-create">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -5422,8 +5552,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -5432,11 +5561,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -5574,7 +5721,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/review/get/doloremque"  \
+    --get "http://localhost:3003/review/get/assumenda"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -5582,7 +5729,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/review/get/doloremque"
+    "http://localhost:3003/review/get/assumenda"
 );
 
 const headers = {
@@ -5605,7 +5752,7 @@ fetch(url, {
 <span id="example-responses-GET-review-get--productID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -5613,8 +5760,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -5623,11 +5769,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "review added",
-    "data": [],
-    "error": null
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -5723,7 +5887,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/review/delete/sit"  \
+    "http://localhost:3003/review/delete/sint"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -5731,7 +5895,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/review/delete/sit"
+    "http://localhost:3003/review/delete/sint"
 );
 
 const headers = {
@@ -5754,7 +5918,7 @@ fetch(url, {
 <span id="example-responses-DELETE-review-delete--reviewID">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -5762,8 +5926,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -5772,11 +5935,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -5883,8 +6064,8 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "productSellerId": "tempora",
-    "quantity": 9103
+    "productSellerId": "quae",
+    "quantity": 43132
 }'
 </code></pre>
 
@@ -5900,8 +6081,8 @@ const headers = {
 };
 
 const body = {
-    "productSellerId": "tempora",
-    "quantity": 9103
+    "productSellerId": "quae",
+    "quantity": 43132
 }
 
 fetch(url, {
@@ -5919,7 +6100,7 @@ fetch(url, {
 <span id="example-responses-POST-buy-buyProduct">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -5927,8 +6108,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -5937,11 +6117,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -6071,10 +6269,10 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Accept: application/json" \
     --data '{
     "title": "Home, Office",
-    "line1": "incidunt",
-    "city": "laboriosam",
+    "line1": "illo",
+    "city": "odit",
     "pincode": 395006,
-    "user_id": "a"
+    "user_id": "minus"
 }'
 </code></pre>
 
@@ -6091,10 +6289,10 @@ const headers = {
 
 const body = {
     "title": "Home, Office",
-    "line1": "incidunt",
-    "city": "laboriosam",
+    "line1": "illo",
+    "city": "odit",
     "pincode": 395006,
-    "user_id": "a"
+    "user_id": "minus"
 }
 
 fetch(url, {
@@ -6112,7 +6310,7 @@ fetch(url, {
 <span id="example-responses-POST-address-add">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -6120,8 +6318,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -6130,11 +6327,10 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
-    "data": null,
-    "error": "Bad Request Error is occured"
+    "message": "Internal server error",
+    "data": null
 }</code>
  </pre>
 
@@ -6323,12 +6519,12 @@ content-type: application/json; charset=utf-8 </code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data '{
-    "userId": "maiores",
-    "quantity": 23835,
-    "weight": 31913,
-    "color": "veritatis",
-    "size": "cupiditate",
-    "productSellerId": "non"
+    "userId": "quia",
+    "quantity": 6400,
+    "weight": 44279,
+    "color": "qui",
+    "size": "soluta",
+    "productSellerId": "in"
 }'
 </code></pre>
 
@@ -6344,12 +6540,12 @@ const headers = {
 };
 
 const body = {
-    "userId": "maiores",
-    "quantity": 23835,
-    "weight": 31913,
-    "color": "veritatis",
-    "size": "cupiditate",
-    "productSellerId": "non"
+    "userId": "quia",
+    "quantity": 6400,
+    "weight": 44279,
+    "color": "qui",
+    "size": "soluta",
+    "productSellerId": "in"
 }
 
 fetch(url, {
@@ -6375,8 +6571,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -6387,7 +6582,10 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "please enter proper uuid of productSellerId",
+        "\"userId\" is not allowed"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -6625,7 +6823,7 @@ fetch(url, {
 <span id="example-responses-GET-user-getAll">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -6633,8 +6831,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -6643,199 +6840,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "successfully getting all the users",
-    "data": {
-        "count": 13,
-        "currentPage": 1,
-        "totalPage": 1,
-        "paginatedData": [
-            {
-                "id": "17dce47f-6cdb-449c-be7f-b0970cb92530",
-                "first_name": "dhruvik",
-                "last_name": "kava",
-                "email": "fsf@gmail.com",
-                "password": "$2a$10$dhNFTLKnzgfdpxfJdzVjne/kWz23I1loEG4BWPhR85IPG84iBNMPm",
-                "username": "dhruvik12345",
-                "mobile_no": "9123213123133",
-                "otp": null,
-                "photo": "photo-1655182093930-120990809.png",
-                "status": 1,
-                "createdAt": "2022-06-14T04:48:14.000Z",
-                "updatedAt": "2022-06-14T04:48:14.000Z"
-            },
-            {
-                "id": "3d5b11c1-7df8-49f8-adf9-05842dbb7f37",
-                "first_name": "ABCDE",
-                "last_name": "ADSDA",
-                "email": "sdsa@gmail.com",
-                "password": "$2a$10$/KO.R8/nlKxIrca2FoLgAeu2QacOEHtqLk9rtVE3zaqVrae9dVYvu",
-                "username": "abcde123",
-                "mobile_no": "9112221212312",
-                "otp": null,
-                "photo": "photo-1655705715301-593585669.png",
-                "status": 1,
-                "createdAt": "2022-06-20T06:15:15.000Z",
-                "updatedAt": "2022-06-20T06:15:15.000Z"
-            },
-            {
-                "id": "6ccad26b-032f-4702-9502-5f7521ee2a4c",
-                "first_name": "ram",
-                "last_name": "ram",
-                "email": "ram@gmail.com",
-                "password": "$2a$10$orv1uqHEx36D1nmf3CAFh.vcUzFZzLSdcvSuJjG7RoOqzPUH.3wf.",
-                "username": "ram123",
-                "mobile_no": "1234567890122",
-                "otp": null,
-                "photo": "photo-1655367021163-44083047.png",
-                "status": 1,
-                "createdAt": "2022-06-16T08:10:21.000Z",
-                "updatedAt": "2022-06-16T08:10:21.000Z"
-            },
-            {
-                "id": "7b7363db-0367-4346-8f97-d24a4761ecc8",
-                "first_name": "Jigar",
-                "last_name": "Shekhat",
-                "email": "jigar556@gmail.com",
-                "password": "$2a$10$5Jv4vG4S3C6ex1ygdYMF3uPcV64W6J6kQJv1sD1rxws1AoxrrHet2",
-                "username": "jigar123",
-                "mobile_no": "+918000711887",
-                "otp": null,
-                "photo": "photo-1655364036366-984417777.png",
-                "status": 1,
-                "createdAt": "2022-06-16T07:20:36.000Z",
-                "updatedAt": "2022-06-16T07:20:36.000Z"
-            },
-            {
-                "id": "7d2db527-0916-42ea-92ef-5ec3eca77146",
-                "first_name": "dhruvik",
-                "last_name": "kava",
-                "email": "dpk@gmail.com",
-                "password": "$2a$10$pYWX6IO5SbKILYTwOLEVi.kl9qcR3V.CxW6o7kx4X4Z9wmmYPHakK",
-                "username": "dhruvik123",
-                "mobile_no": "9123456789012",
-                "otp": null,
-                "photo": "photo-1655191333730-508793628.png",
-                "status": 1,
-                "createdAt": "2022-06-14T07:22:13.000Z",
-                "updatedAt": "2022-06-14T07:22:13.000Z"
-            },
-            {
-                "id": "8494b84f-6ffe-45e9-8089-a96d366ffc1d",
-                "first_name": "ramesh",
-                "last_name": "sharma",
-                "email": "dsa@gmail.com",
-                "password": "$2a$10$a0A5NjeeGnQ6mEQo7ed5ju8Q5TXyVqnLrKLgaFM5Y4hmuPlbUKGiu",
-                "username": "ramesh123",
-                "mobile_no": "9121121233244",
-                "otp": null,
-                "photo": "photo-1655182396521-104780101.png",
-                "status": 1,
-                "createdAt": "2022-06-14T04:53:16.000Z",
-                "updatedAt": "2022-06-14T04:53:16.000Z"
-            },
-            {
-                "id": "893f433f-1922-443e-b7d0-39dc57e88a30",
-                "first_name": "Jigar",
-                "last_name": "Shekhat",
-                "email": "testemail",
-                "password": "$2a$10$Ll8A1TXNo5qXQJeNVY43v.XzT03.zgmzOlGY7QlfAY0P1jADbpJ2u",
-                "username": "testusername",
-                "mobile_no": "+918000711872",
-                "otp": 7977,
-                "photo": "photo-1655117867756-70835719.png",
-                "status": 1,
-                "createdAt": "2022-06-13T10:57:47.000Z",
-                "updatedAt": "2022-06-21T10:00:51.000Z"
-            },
-            {
-                "id": "ad9eb665-0ec5-4b89-b93c-6af38aaf69b6",
-                "first_name": "dhruvik",
-                "last_name": "kava",
-                "email": "dj@gmail.com",
-                "password": "$2a$10$XprKVYYl2fwbs.zNvXdFX.N.u0wt3V.NjCGZ8J8CD6wcn0DzHhHc2",
-                "username": "dpk123",
-                "mobile_no": "",
-                "otp": null,
-                "photo": "photo-1655117946034-709105317.png",
-                "status": 1,
-                "createdAt": "2022-06-13T10:59:06.000Z",
-                "updatedAt": "2022-06-13T10:59:06.000Z"
-            },
-            {
-                "id": "b1b783fa-f4ab-4181-b488-3f5b71a9e403",
-                "first_name": "Jigar",
-                "last_name": "Shekhat",
-                "email": "jigar222@gmail.com",
-                "password": "$2a$10$QXNhdaW/1guD0g5WRgdjzuHRpzHnh4jJ1A0WhKYCGoKp3JFGqq.Gq",
-                "username": "admin123",
-                "mobile_no": "+918000711876",
-                "otp": null,
-                "photo": "photo-1655286305465-916674635.png",
-                "status": 1,
-                "createdAt": "2022-06-15T09:45:05.000Z",
-                "updatedAt": "2022-06-15T09:45:05.000Z"
-            },
-            {
-                "id": "b245f83c-2472-4200-a2bf-cf1b95ddbc3b",
-                "first_name": "ramesh",
-                "last_name": "dsasd",
-                "email": "sds@gmail.com",
-                "password": "$2a$10$spckwIyCX/gIgg108YkUfOaZFY3Qlxw9ab/XkoFau3mX2MEhdnstO",
-                "username": "ramesh1234",
-                "mobile_no": "9123322322322",
-                "otp": null,
-                "photo": "photo-1655284916273-678056955.png",
-                "status": 1,
-                "createdAt": "2022-06-15T09:21:56.000Z",
-                "updatedAt": "2022-06-15T09:21:56.000Z"
-            },
-            {
-                "id": "c1a833ff-b90d-4f65-b122-c1f29d06c15f",
-                "first_name": "abcd",
-                "last_name": "saassa",
-                "email": "sd@gmail.com",
-                "password": "$2a$10$6m68U4v9LTsxKLd4e0Ige.iqxmZviOWzOll0SyE2d2.1/d97T.5Me",
-                "username": "abcd123",
-                "mobile_no": "9123232132237",
-                "otp": null,
-                "photo": "photo-1655191874460-575794688.png",
-                "status": 1,
-                "createdAt": "2022-06-14T07:31:14.000Z",
-                "updatedAt": "2022-06-14T07:31:14.000Z"
-            },
-            {
-                "id": "cb583f85-6002-4b82-a9e6-0cf4e433a460",
-                "first_name": "xyz",
-                "last_name": "xyz",
-                "email": "xyz@gmail.com",
-                "password": "$2a$10$fD1UdooJfQboDT7mi.pffuJky2mM24uT4zD2EGc3g.hWgwUqUoNt6",
-                "username": "xyz",
-                "mobile_no": "9180008711889",
-                "otp": null,
-                "photo": "photo-1655363245693-142362136.png",
-                "status": 1,
-                "createdAt": "2022-06-16T07:07:25.000Z",
-                "updatedAt": "2022-06-16T07:07:25.000Z"
-            },
-            {
-                "id": "e3bf4920-6976-4c4d-b371-a82436adabb4",
-                "first_name": "abcde",
-                "last_name": "sda",
-                "email": "df@gmail.com",
-                "password": "$2a$10$LMKP7JfWjbc97.Nai90yPeWNIVGt9YLVx6e2IohY5zxc9SRpxWaD6",
-                "username": "abcd1234",
-                "mobile_no": "9112345678902",
-                "otp": null,
-                "photo": "photo-1655363734913-170322714.png",
-                "status": 1,
-                "createdAt": "2022-06-16T07:15:35.000Z",
-                "updatedAt": "2022-06-16T07:15:35.000Z"
-            }
-        ]
-    },
-    "error": null
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -6910,7 +6937,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/address/delete/possimus"  \
+    "http://localhost:3003/address/delete/placeat"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -6918,7 +6945,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/address/delete/possimus"
+    "http://localhost:3003/address/delete/placeat"
 );
 
 const headers = {
@@ -6941,7 +6968,7 @@ fetch(url, {
 <span id="example-responses-DELETE-address-delete--addressId">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -6949,8 +6976,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -6959,11 +6985,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -7090,7 +7134,7 @@ fetch(url, {
 <span id="example-responses-POST-address-edit">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7098,8 +7142,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7108,11 +7151,11 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {}
 }</code>
  </pre>
 
@@ -7218,7 +7261,7 @@ fetch(url, {
 <span id="example-responses-GET-address-getAll">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7226,8 +7269,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7236,11 +7278,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -7346,7 +7406,7 @@ fetch(url, {
 <span id="example-responses-GET-cart-buy">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7354,8 +7414,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7364,11 +7423,10 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
-    "data": null,
-    "error": "Bad Request Error is occured"
+    "message": "Internal server error",
+    "data": null
 }</code>
  </pre>
 
@@ -7443,7 +7501,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/cart/delete/est"  \
+    "http://localhost:3003/cart/delete/vel"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -7451,7 +7509,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/cart/delete/est"
+    "http://localhost:3003/cart/delete/vel"
 );
 
 const headers = {
@@ -7474,7 +7532,7 @@ fetch(url, {
 <span id="example-responses-DELETE-cart-delete--cartId">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7482,8 +7540,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7492,11 +7549,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -7623,7 +7698,7 @@ fetch(url, {
 <span id="example-responses-GET-cart-get">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7631,8 +7706,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7641,11 +7715,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -7751,7 +7843,7 @@ fetch(url, {
 <span id="example-responses-POST-order-cart">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7759,8 +7851,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7769,11 +7860,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -7848,7 +7957,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request GET \
-    --get "http://localhost:3003/order/track/aut"  \
+    --get "http://localhost:3003/order/track/perspiciatis"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -7856,7 +7965,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/order/track/aut"
+    "http://localhost:3003/order/track/perspiciatis"
 );
 
 const headers = {
@@ -7879,7 +7988,7 @@ fetch(url, {
 <span id="example-responses-GET-order-track--orderId">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -7887,8 +7996,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -7897,11 +8005,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -8036,8 +8162,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8048,7 +8173,12 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "Card holder name is required",
+        "Card number is required",
+        "cvv is required",
+        "expire date is required"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -8164,8 +8294,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8176,7 +8305,12 @@ content-type: application/json; charset=utf-8 </code></pre>
     "status": "ok",
     "statusCode": 400,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": [
+        "Card holder name is required",
+        "Card number is required",
+        "cvv is required",
+        "expire date is required"
+    ],
     "data": null,
     "error": "Bad Request Error is occured"
 }</code>
@@ -8253,7 +8387,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/payments/delete/sit"  \
+    "http://localhost:3003/payments/delete/pariatur"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -8261,7 +8395,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/payments/delete/sit"
+    "http://localhost:3003/payments/delete/pariatur"
 );
 
 const headers = {
@@ -8284,7 +8418,7 @@ fetch(url, {
 <span id="example-responses-DELETE-payments-delete--paymentCardId">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -8292,8 +8426,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8302,11 +8435,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -8433,7 +8584,7 @@ fetch(url, {
 <span id="example-responses-GET-payments-get">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -8441,8 +8592,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8451,11 +8601,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "Please login first",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -8569,8 +8737,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8593,11 +8760,11 @@ content-type: application/json; charset=utf-8 </code></pre>
                 "value": null,
                 "origin": "CORE",
                 "instance": {
-                    "id": "93f3c122-a08c-4582-8ac0-66d0600813e6",
-                    "redeem_code": "7q4mdh77p1p6lqprykgz",
-                    "expire_date": "2022-06-21T10:00:52.868Z",
-                    "updatedAt": "2022-06-21T10:00:52.870Z",
-                    "createdAt": "2022-06-21T10:00:52.870Z"
+                    "id": "008f320a-5aad-46d3-80a4-59fc9873d81d",
+                    "redeem_code": "5kstyrs11niy4lip9lxt",
+                    "expire_date": "2022-06-30T05:48:22.792Z",
+                    "updatedAt": "2022-06-30T05:48:22.793Z",
+                    "createdAt": "2022-06-30T05:48:22.793Z"
                 },
                 "validatorKey": "is_null",
                 "validatorName": null,
@@ -8718,8 +8885,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8807,7 +8973,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="bash language-bash">curl --request DELETE \
-    "http://localhost:3003/coupon/delete/et"  \
+    "http://localhost:3003/coupon/delete/non"  \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"
 </code></pre>
@@ -8815,7 +8981,7 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
 <pre><code class="javascript language-javascript">const url = new URL(
-    "http://localhost:3003/coupon/delete/et"
+    "http://localhost:3003/coupon/delete/non"
 );
 
 const headers = {
@@ -8838,7 +9004,7 @@ fetch(url, {
 <span id="example-responses-DELETE-coupon-delete--couponId">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -8846,8 +9012,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -8856,11 +9021,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 400,
+    "statusCode": 500,
     "isSuccess": false,
-    "message": "coupon is not exist",
+    "message": "Internal server error",
     "data": null,
-    "error": "Bad Request Error is occured"
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -8987,7 +9170,7 @@ fetch(url, {
 <span id="example-responses-GET-coupon-getAll">
 
 
-<blockquote>Example response (200):</blockquote>
+<blockquote>Example response (500):</blockquote>
 
 
 <details class="annotation">
@@ -8995,8 +9178,7 @@ fetch(url, {
         <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
     </summary>
     <pre><code class="language-http">
-access-control-allow-origin: http://localhost:4200
-vary: Origin
+access-control-allow-origin: *
 content-type: application/json; charset=utf-8 </code></pre>
 </details> 
 
@@ -9005,173 +9187,29 @@ content-type: application/json; charset=utf-8 </code></pre>
 <!-- If response is a JSON string, prettify it. Otherwise, just print it -->
 <code class="language-json">{
     "status": "ok",
-    "statusCode": 200,
-    "isSuccess": true,
-    "message": "successfully getting data",
-    "data": {
-        "count": 13,
-        "currentPage": 1,
-        "totalPage": 1,
-        "paginatedData": [
-            {
-                "id": "4c2b5a61-8120-414a-8e3a-3c564188a204",
-                "redeem_code": "t2lflxzk9dwrmmfyqv7k",
-                "name": "10% Cashback on sell any electronics",
-                "percentage": 10,
-                "discount": 0,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T07:30:43.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T07:30:43.000Z",
-                "updatedAt": "2022-06-21T07:30:43.000Z"
-            },
-            {
-                "id": "50b8ecbe-8854-4898-b760-33f38dd36e8a",
-                "redeem_code": "79ba09nd11e3xqpy3n7j",
-                "name": "10Rs Cashback on HDFC collect",
-                "percentage": 0,
-                "discount": 10,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T07:28:45.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T07:28:45.000Z",
-                "updatedAt": "2022-06-21T07:28:45.000Z"
-            },
-            {
-                "id": "5b8d94ad-5371-4607-9d2c-1987782f676c",
-                "redeem_code": "plmxcc284zit49jz97j0",
-                "name": "100Rs on all activate sells",
-                "percentage": 0,
-                "discount": 100,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T07:31:25.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T07:31:25.000Z",
-                "updatedAt": "2022-06-21T07:31:25.000Z"
-            },
-            {
-                "id": "6673204b-0422-4c57-a3a3-0b559bf37978",
-                "redeem_code": "1o7o3hjz948bozs5js3j",
-                "name": "Rs 20 on sell product by BOB credit card",
-                "percentage": 0,
-                "discount": 20,
-                "term_condition": "nition for the mat-table. Captures the templat",
-                "expire_date": "2022-06-21T09:47:42.000Z",
-                "status": 1,
-                "createdAt": "2022-06-21T09:47:42.000Z",
-                "updatedAt": "2022-06-21T09:47:42.000Z"
-            },
-            {
-                "id": "71cf04df-2a88-4335-b151-67b113fba76a",
-                "redeem_code": "sl4qgwpihnik1egpyafc",
-                "name": "50 Rs. cashback",
-                "percentage": 0,
-                "discount": 50,
-                "term_condition": "this coupon can be used for only for all user",
-                "expire_date": "2022-07-11T06:00:44.000Z",
-                "status": 2,
-                "createdAt": "2022-06-21T06:00:44.000Z",
-                "updatedAt": "2022-06-21T06:00:44.000Z"
-            },
-            {
-                "id": "7f6a54d5-3966-4eea-9e34-24173efac616",
-                "redeem_code": "vbzt38cpot7lqqlr0qu9",
-                "name": "Flat 50% cashback on sell Fruits",
-                "percentage": 50,
-                "discount": 0,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T07:28:03.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T07:28:03.000Z",
-                "updatedAt": "2022-06-21T07:28:03.000Z"
-            },
-            {
-                "id": "8384bde5-2de1-46aa-8cf2-d5f6575bb4cf",
-                "redeem_code": "o0q0l87k1ryqsiflxy9b",
-                "name": "10% off on HDFC credit card",
-                "percentage": 10,
-                "discount": 0,
-                "term_condition": "this coupon can be used for only for all user",
-                "expire_date": "2022-07-11T06:00:13.000Z",
-                "status": 1,
-                "createdAt": "2022-06-21T06:00:13.000Z",
-                "updatedAt": "2022-06-21T06:00:13.000Z"
-            },
-            {
-                "id": "84342032-c4ec-4ac5-88a6-5bd5fc20910e",
-                "redeem_code": "ls2wsukk2dmb3w9kxiqz",
-                "name": "500Rs cashback on SBI debit card",
-                "percentage": 0,
-                "discount": 500,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T07:29:31.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T07:29:31.000Z",
-                "updatedAt": "2022-06-21T07:29:31.000Z"
-            },
-            {
-                "id": "98a5b98d-6536-4f61-9963-a07eba833f9f",
-                "redeem_code": "70atv14xup77kx0lipop",
-                "name": "sdas",
-                "percentage": 12,
-                "discount": 0,
-                "term_condition": "weqwew",
-                "expire_date": "2022-06-21T09:01:48.000Z",
-                "status": 0,
-                "createdAt": "2022-06-21T09:01:48.000Z",
-                "updatedAt": "2022-06-21T09:01:48.000Z"
-            },
-            {
-                "id": "b96fae59-8a2a-421c-9fc3-c7dd376dd8e5",
-                "redeem_code": "rlyrnqj6nn416oiyf3tf",
-                "name": "5% off on UPI",
-                "percentage": 5,
-                "discount": 0,
-                "term_condition": "inition for the mat-table. Captures the templat",
-                "expire_date": "2022-06-21T09:50:13.000Z",
-                "status": 3,
-                "createdAt": "2022-06-21T09:50:13.000Z",
-                "updatedAt": "2022-06-21T09:50:13.000Z"
-            },
-            {
-                "id": "c7448d42-9b26-49f4-9c3a-52d606e597d8",
-                "redeem_code": "u070gpig4nwv1egbximi",
-                "name": "flat $20 on each product",
-                "percentage": 20,
-                "discount": 0,
-                "term_condition": "We can access the order query parameter like this:",
-                "expire_date": "2022-06-21T09:20:11.000Z",
-                "status": 3,
-                "createdAt": "2022-06-21T09:20:11.000Z",
-                "updatedAt": "2022-06-21T09:20:11.000Z"
-            },
-            {
-                "id": "d61421b1-d8d2-47f5-a685-89fa2b1353f1",
-                "redeem_code": "2phggiicbbwgkfdhpidx",
-                "name": "200 off on ICIC credit card",
-                "percentage": 0,
-                "discount": 200,
-                "term_condition": "this coupon can be used for only for all user",
-                "expire_date": "2022-07-11T05:59:52.000Z",
-                "status": 1,
-                "createdAt": "2022-06-21T05:59:52.000Z",
-                "updatedAt": "2022-06-21T05:59:52.000Z"
-            },
-            {
-                "id": "e94b7a1b-a1e5-421f-9c2e-43943335ef94",
-                "redeem_code": "55ecpvxu8kzhwpw3fnd4",
-                "name": "20% disc on sell dress",
-                "percentage": 20,
-                "discount": 0,
-                "term_condition": "That's the right way to use the element, you must have",
-                "expire_date": "2022-06-21T09:04:54.000Z",
-                "status": 1,
-                "createdAt": "2022-06-21T09:04:54.000Z",
-                "updatedAt": "2022-06-21T09:04:54.000Z"
-            }
-        ]
-    },
-    "error": null
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
 }</code>
  </pre>
 
@@ -9220,6 +9258,151 @@ content-type: application/json; charset=utf-8 </code></pre>
 
 
     <b><code>/coupon/getAll</code></b>
+</p>
+
+
+
+
+
+</form>
+
+
+
+    
+        
+<h2 id="Endpoints-GET-coupon-get">GET /coupon/get</h2>
+
+<p>
+
+</p>
+
+
+
+<span id="example-requests-GET-coupon-get">
+<blockquote>Example request:</blockquote>
+
+
+
+<pre><code class="bash language-bash">curl --request GET \
+    --get "http://localhost:3003/coupon/get"  \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"
+</code></pre>
+
+
+
+<pre><code class="javascript language-javascript">const url = new URL(
+    "http://localhost:3003/coupon/get"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+.then(response =&gt; response.json())
+.then(json =&gt; console.log(json));
+</code></pre>
+
+
+</span>
+
+<span id="example-responses-GET-coupon-get">
+
+
+<blockquote>Example response (500):</blockquote>
+
+
+<details class="annotation">
+    <summary>
+        <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+    </summary>
+    <pre><code class="language-http">
+access-control-allow-origin: *
+content-type: application/json; charset=utf-8 </code></pre>
+</details> 
+
+<pre>
+ 
+<!-- If response is a JSON string, prettify it. Otherwise, just print it -->
+<code class="language-json">{
+    "status": "ok",
+    "statusCode": 500,
+    "isSuccess": false,
+    "message": "Internal server error",
+    "data": null,
+    "error": {
+        "name": "SequelizeConnectionRefusedError",
+        "parent": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        },
+        "original": {
+            "errno": -4078,
+            "code": "ECONNREFUSED",
+            "syscall": "connect",
+            "address": "127.0.0.1",
+            "port": 3306,
+            "fatal": true
+        }
+    }
+}</code>
+ </pre>
+
+
+</span>
+<span id="execution-results-GET-coupon-get" hidden>
+    <blockquote>Received response<span id="execution-response-status-GET-coupon-get"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GET-coupon-get"></code></pre>
+</span>
+<span id="execution-error-GET-coupon-get" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GET-coupon-get"></code></pre>
+</span>
+
+<form id="form-GET-coupon-get"
+      data-method="GET"
+      data-path="/coupon/get"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{&#34;Content-Type&#34;:&#34;application/json&#34;,&#34;Accept&#34;:&#34;application/json&#34;}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GET-coupon-get', this);">
+<h3>
+    Request&nbsp;
+    
+    <button
+            type="button"
+            style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-tryout-GET-coupon-get"
+            onclick="tryItOut('GET-coupon-get');">Try it out ⚡</button>
+    <button
+            type="button"
+            style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-canceltryout-GET-coupon-get"
+            onclick="cancelTryOut('GET-coupon-get');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button
+            type="submit"
+            style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+            id="btn-executetryout-GET-coupon-get" hidden>Send Request 💥</button>
+    
+</h3>
+
+<p>
+    <small class="badge badge-green">GET</small>
+
+
+    <b><code>/coupon/get</code></b>
 </p>
 
 

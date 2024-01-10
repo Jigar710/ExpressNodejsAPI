@@ -20,34 +20,51 @@ endpoints:
         type: string
         required: true
         description: ''
-        example: accusamus
+        example: qui
       rating:
         name: rating
         type: number
         required: true
         description: ''
-        example: 51913
+        example: 12957
       product_id:
         name: product_id
         type: uuid
         required: true
         description: ''
-        example: facilis
+        example: necessitatibus
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: '/review/get/:productID'
@@ -63,7 +80,7 @@ endpoints:
     urlParameters:
       productID:
         name: productID
-        example: doloremque
+        example: assumenda
         required: true
         type: string
         description: ''
@@ -71,20 +88,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "review added",
-              "data": [],
-              "error": null
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: '/review/delete/:reviewID'
@@ -100,7 +134,7 @@ endpoints:
     urlParameters:
       reviewID:
         name: reviewID
-        example: sit
+        example: sint
         required: true
         type: string
         description: ''
@@ -108,19 +142,36 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}

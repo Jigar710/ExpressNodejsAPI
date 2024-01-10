@@ -57,12 +57,17 @@ endpoints:
         required: true
         description: role of user.
         example: Customer
+      image:
+        name: image
+        type: string
+        required: true
+        description: profile picture
+        example: ut
     responses:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
@@ -71,10 +76,64 @@ endpoints:
               "isSuccess": false,
               "message": [
                   "\"email\" must be a valid email",
-                  "mobile number is required"
+                  "mobile number is required",
+                  "\"image\" is not allowed"
               ],
               "data": null,
               "error": "Bad Request Error is occured"
+          }
+    responseFields: {}
+  - uri: /user/mobileEntry
+    httpMethods:
+      - POST
+    metadata:
+      title: ''
+      description: null
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters:
+      mobileNo:
+        name: mobileNo
+        type: string
+        required: true
+        description: mobile number of user.
+        example: '+918000711872'
+    responses:
+      - status: 500
+        description: ''
+        headers:
+          access-control-allow-origin: '*'
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /user/login
@@ -103,23 +162,40 @@ endpoints:
         description: password.
         example: testpassword
     responses:
-      - status: 401
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
-              "status": "unauthorized",
-              "statusCode": 401,
+              "status": "ok",
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Invalid credentials",
+              "message": "Internal server error",
               "data": null,
-              "error": null
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
-  - uri: /user/mobileEntry
+  - uri: /user/update
     httpMethods:
       - POST
     metadata:
@@ -132,29 +208,35 @@ endpoints:
     urlParameters: {}
     queryParameters: {}
     bodyParameters:
-      mobileNo:
-        name: mobileNo
+      username:
+        name: username
         type: string
         required: true
-        description: mobile number of user.
-        example: '+918000711872'
+        description: user name of user.
+        example: testusername
+      email:
+        name: email
+        type: string
+        required: true
+        description: email of user.
+        example: testemail
     responses:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "successfully otp send",
-              "data": {
-                  "otp": "7977"
-              },
-              "error": null
+              "statusCode": 400,
+              "isSuccess": false,
+              "message": [
+                  "id is required",
+                  "\"email\" must be a valid email"
+              ],
+              "data": null,
+              "error": "Bad Request Error is occured"
           }
     responseFields: {}
   - uri: /user/change
@@ -195,64 +277,36 @@ endpoints:
         description: email of user.
         example: testemail
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
-          }
-    responseFields: {}
-  - uri: /user/update
-    httpMethods:
-      - POST
-    metadata:
-      title: ''
-      description: null
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: {}
-    queryParameters: {}
-    bodyParameters:
-      username:
-        name: username
-        type: string
-        required: true
-        description: user name of user.
-        example: testusername
-      email:
-        name: email
-        type: string
-        required: true
-        description: email of user.
-        example: testemail
-    responses:
-      - status: 200
-        description: ''
-        headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
-          content-type: application/json; charset=utf-8
-        content: |-
-          {
-              "status": "ok",
-              "statusCode": 400,
-              "isSuccess": false,
-              "message": [
-                  "id is required",
-                  "\"email\" must be a valid email"
-              ],
-              "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}

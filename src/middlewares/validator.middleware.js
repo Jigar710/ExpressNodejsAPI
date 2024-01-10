@@ -10,10 +10,10 @@ const validator = (validator) => {
       if (!Validators.hasOwnProperty(validator)) {
         return badRequestResponse(res, `${validator}' validator is not exist`);
       }
-      // console.log(req.body);
+      console.log(req.body);
       const validated = await Validators[validator].validateAsync(req.body);
       req.body = validated;
-      // console.log("data is validated");
+      console.log("data is validated");
       next();
     } catch (err) {
       if (err.isJoi) {

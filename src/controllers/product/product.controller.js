@@ -6,7 +6,11 @@ const serial = require("generate-serial-key");
 const db = require("../../models/index");
 const Op = sequelize.Op;
 const { findAllWithPagination, paginate } = require("../../services/index.service");
-const { successResponse, internalServerErrorResponse, badRequestResponse } = require("../../responses");
+const {
+  successResponse,
+  internalServerErrorResponse,
+  badRequestResponse,
+} = require("../../responses");
 const getDataWithPagination = require("../../services/paginate.service");
 
 // models
@@ -127,7 +131,9 @@ class ProductController {
       var totalQuantity = 0;
       console.log(productsFromAllSellers);
       console.log(totalQuantity);
-      return successResponse(res, "successfully get product details", { productsFromAllSellers: productsFromAllSellers });
+      return successResponse(res, "successfully get product details", {
+        productsFromAllSellers: productsFromAllSellers,
+      });
     } catch (error) {
       console.log(error);
       return internalServerErrorResponse(res, error);
@@ -140,7 +146,6 @@ class ProductController {
       var products = await Product.findAll({
         include: [
           {
-            attributes: ["category_id"],
             model: ProductCategory,
             include: [
               {
@@ -158,7 +163,6 @@ class ProductController {
       return internalServerErrorResponse(res, error);
     }
   };
-
   removeProduct = async (req, res) => {
     try {
       const id = req.params.productID;
@@ -189,7 +193,11 @@ class ProductController {
       };
       console.log(prepareCreateData);
       const productPriceBySeller = await ProductPriceBySeller.create(prepareCreateData);
-      return successResponse(res, "successfull added specifications of your product", productPriceBySeller);
+      return successResponse(
+        res,
+        "successfull added specifications of your product",
+        productPriceBySeller
+      );
     } catch (error) {
       console.log(error);
       return internalServerErrorResponse(res, error);
@@ -214,7 +222,11 @@ class ProductController {
             },
           }
         );
-        return successResponse(res, "successfull update specifications of your product", productPriceBySeller);
+        return successResponse(
+          res,
+          "successfull update specifications of your product",
+          productPriceBySeller
+        );
       } else {
         return badRequestResponse(res, "This is not your product.So you can't edit this.");
       }
@@ -324,8 +336,6 @@ class ProductController {
             required: requiredFlagPriceSeller,
           },
         ],
-        offset: offset,
-        limit: parseInt(limit1),
         order: orderSortBy,
       };
 

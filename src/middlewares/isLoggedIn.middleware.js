@@ -6,11 +6,12 @@ const { internalServerErrorResponse, badRequestResponse, successResponse } = req
 const { jwtService } = require("../services/index.service");
 const isLoggedIn = async (req, res, next) => {
   try {
-    if (process.env.NODE_ENV == "production") {
-      req.user = { id: "893f433f-1922-443e-b7d0-39dc57e88a30" };
+    if (process.env.NODE_ENV == "development") {
+      req.user = { id: "cb583f85-6002-4b82-a9e6-0cf4e433a460" };
       next();
     } else {
       const token = req.headers["authorization"] || req.body.token || req.query.token;
+      console.log(token);
       if (token == undefined) {
         return badRequestResponse(res, "Please login first");
       }
@@ -24,10 +25,10 @@ const isLoggedIn = async (req, res, next) => {
         });
       } else {
         const decoded = jwt.verify(token, env.JWT_SECRET);
-        // console.log(token);
+        console.log(token);
         if (decoded) {
           req.user = decoded;
-          // console.log("Your token is valid& you can allow to access this route.");
+          console.log("Your token is valid& you can allow to access this route.");
           next();
         } else {
           return badRequestResponse(res, "Please login first");

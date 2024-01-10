@@ -47,7 +47,7 @@ const signupSchema = Joi.object({
   mobileNo: Joi.string()
     .length(13)
     .regex(/^[0-9+]+$/)
-    .required()
+    // .required()
     .messages({
       "any.required": `mobile number is required`,
     }),

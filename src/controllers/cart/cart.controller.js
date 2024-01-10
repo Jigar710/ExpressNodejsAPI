@@ -11,7 +11,7 @@ class CartController {
   constructor() {}
   addToCart = async (req, res) => {
     try {
-      // console.log(req.body);
+      console.log(req.body);
       const { quantity, weight, color, size, productSellerId } = req.body;
       if (quantity && weight) {
         return badRequestResponse(res, "Please provide only one parameter...quantity or weight");

@@ -20,22 +20,39 @@ endpoints:
         type: string
         required: true
         description: Name of status
-        example: necessitatibus
+        example: qui
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /status/update
@@ -56,28 +73,45 @@ endpoints:
         type: uuid
         required: true
         description: ''
-        example: molestiae
+        example: voluptatibus
       name:
         name: name
         type: string
         required: true
         description: Name of status
-        example: assumenda
+        example: eligendi
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /status/changeStatus
@@ -98,26 +132,25 @@ endpoints:
         type: uuid
         required: true
         description: ''
-        example: ut
+        example: sed
       status:
         name: status
         type: number
         required: true
         description: Number of status
-        example: 33868
+        example: 39959
     responses:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "status is not valid",
               "data": null,
               "error": "Bad Request Error is occured"
           }
@@ -136,200 +169,36 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "successfully getting all statuses",
-              "data": [
-                  {
-                      "id": "046d34a5-415d-49ad-b57d-12338f3a1058",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:02:08.000Z",
-                      "updatedAt": "2022-06-14T05:02:08.000Z"
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
                   },
-                  {
-                      "id": "0760fa17-a491-43c1-a032-c954441e4954",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:54:48.000Z",
-                      "updatedAt": "2022-06-14T04:54:48.000Z"
-                  },
-                  {
-                      "id": "09976a28-52b4-4e9c-9c7a-f4e4438715e3",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:47:56.000Z",
-                      "updatedAt": "2022-06-14T04:47:56.000Z"
-                  },
-                  {
-                      "id": "0cf1b8e9-f73d-4373-8dd4-4166a604a566",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:14:24.000Z",
-                      "updatedAt": "2022-06-14T05:14:24.000Z"
-                  },
-                  {
-                      "id": "22203aa3-8450-483f-85a3-ba3ae1c1cb3c",
-                      "name": "Sold out",
-                      "createdAt": "2022-06-14T04:24:42.000Z",
-                      "updatedAt": "2022-06-14T04:24:42.000Z"
-                  },
-                  {
-                      "id": "298cee5e-cf85-4083-8201-66e1913531fe",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:43:20.000Z",
-                      "updatedAt": "2022-06-14T04:43:20.000Z"
-                  },
-                  {
-                      "id": "2eb81056-964d-460a-bc16-143735f1deda",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:44:22.000Z",
-                      "updatedAt": "2022-06-14T05:44:22.000Z"
-                  },
-                  {
-                      "id": "3557e2b4-b051-4c7e-8036-60ddf6b9143b",
-                      "name": null,
-                      "createdAt": "2022-06-14T06:04:06.000Z",
-                      "updatedAt": "2022-06-14T06:04:06.000Z"
-                  },
-                  {
-                      "id": "3a8c1827-5e5b-4c00-aab3-a1022f6454f9",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:09:46.000Z",
-                      "updatedAt": "2022-06-14T05:09:46.000Z"
-                  },
-                  {
-                      "id": "5b81e4f6-98b0-459c-a0b1-1a5ba5bc5a18",
-                      "name": "quo",
-                      "createdAt": "2022-06-14T06:30:50.000Z",
-                      "updatedAt": "2022-06-14T06:30:50.000Z"
-                  },
-                  {
-                      "id": "6bccdb5b-d74f-480e-b2e3-b2ba501924da",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:08:28.000Z",
-                      "updatedAt": "2022-06-14T05:08:28.000Z"
-                  },
-                  {
-                      "id": "73ef7fe4-098f-476e-b4c7-7cdc13ba1643",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:14:35.000Z",
-                      "updatedAt": "2022-06-14T05:14:35.000Z"
-                  },
-                  {
-                      "id": "873420c7-e60b-4b8b-acfe-af2f38383e41",
-                      "name": "qui",
-                      "createdAt": "2022-06-15T10:26:02.000Z",
-                      "updatedAt": "2022-06-15T10:26:02.000Z"
-                  },
-                  {
-                      "id": "8b9ff219-8b6b-4ab6-b46a-5de38bc1f32a",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:20:08.000Z",
-                      "updatedAt": "2022-06-14T05:20:08.000Z"
-                  },
-                  {
-                      "id": "91e97959-35e6-4389-8462-dd2434b79bcc",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:40:29.000Z",
-                      "updatedAt": "2022-06-14T04:40:29.000Z"
-                  },
-                  {
-                      "id": "92f972d6-12b6-4c35-8b58-b662214875a4",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:32:45.000Z",
-                      "updatedAt": "2022-06-14T05:32:45.000Z"
-                  },
-                  {
-                      "id": "acb1f70f-944d-4661-9bda-090632873bdc",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:39:04.000Z",
-                      "updatedAt": "2022-06-14T04:39:04.000Z"
-                  },
-                  {
-                      "id": "ae3396d9-a07c-4279-ba76-80a34e584a11",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:58:52.000Z",
-                      "updatedAt": "2022-06-14T05:58:52.000Z"
-                  },
-                  {
-                      "id": "b2b03dab-7690-492a-a35f-c84f31502a0c",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:56:34.000Z",
-                      "updatedAt": "2022-06-14T04:56:34.000Z"
-                  },
-                  {
-                      "id": "b62d2760-2702-4730-aa63-88f2530c6adc",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:11:10.000Z",
-                      "updatedAt": "2022-06-14T05:11:10.000Z"
-                  },
-                  {
-                      "id": "c743b263-ca4e-4d0d-aa5c-ba1d1b48e3f9",
-                      "name": "totam",
-                      "createdAt": "2022-06-14T06:33:04.000Z",
-                      "updatedAt": "2022-06-14T06:33:04.000Z"
-                  },
-                  {
-                      "id": "cc3faeb5-7615-46fe-bf31-ab81cc744ce4",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:00:44.000Z",
-                      "updatedAt": "2022-06-14T05:00:44.000Z"
-                  },
-                  {
-                      "id": "d2d12cc8-8b74-4ec1-9c05-95ef41515f1a",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:45:42.000Z",
-                      "updatedAt": "2022-06-14T04:45:42.000Z"
-                  },
-                  {
-                      "id": "d31de43a-6479-4f3b-bea1-3c518871cf10",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:11:53.000Z",
-                      "updatedAt": "2022-06-14T05:11:53.000Z"
-                  },
-                  {
-                      "id": "eef591ce-f8b7-46fa-b1fd-93c0b45a2e9e",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:13:13.000Z",
-                      "updatedAt": "2022-06-14T05:13:13.000Z"
-                  },
-                  {
-                      "id": "f14cce2c-a774-43df-9d0a-9ce53251ff42",
-                      "name": "voluptatum",
-                      "createdAt": "2022-06-14T06:29:52.000Z",
-                      "updatedAt": "2022-06-14T06:29:52.000Z"
-                  },
-                  {
-                      "id": "f2ef853a-5563-448e-bbbf-03a16e29b336",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:13:50.000Z",
-                      "updatedAt": "2022-06-14T05:13:50.000Z"
-                  },
-                  {
-                      "id": "f3e568e9-7651-48f6-aa2d-00cbee5d9f96",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:44:41.000Z",
-                      "updatedAt": "2022-06-14T04:44:41.000Z"
-                  },
-                  {
-                      "id": "f7cfb9d9-fd23-4482-a133-1da4b09b19e8",
-                      "name": null,
-                      "createdAt": "2022-06-14T04:45:37.000Z",
-                      "updatedAt": "2022-06-14T04:45:37.000Z"
-                  },
-                  {
-                      "id": "f99b2cbe-e94d-4468-90c3-c97c1c694f52",
-                      "name": null,
-                      "createdAt": "2022-06-14T05:01:34.000Z",
-                      "updatedAt": "2022-06-14T05:01:34.000Z"
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
                   }
-              ],
-              "error": null
+              }
           }
     responseFields: {}

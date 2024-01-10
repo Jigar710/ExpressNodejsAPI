@@ -26,25 +26,25 @@ endpoints:
         type: string
         required: true
         description: small description of product.
-        example: atque
+        example: fugit
       long_desc:
         name: long_desc
         type: string
         required: true
         description: long description of product
-        example: incidunt
+        example: qui
       image:
         name: image
         type: string
         required: true
         description: this is file.
-        example: numquam
+        example: perspiciatis
       status_id:
         name: status_id
         type: uuid
         required: true
         description: ''
-        example: tenetur
+        example: modi
       categories:
         name: categories
         type: string
@@ -56,15 +56,16 @@ endpoints:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": [
+                  "long description must have atleast 20 letters"
+              ],
               "data": null,
               "error": "Bad Request Error is occured"
           }
@@ -87,7 +88,7 @@ endpoints:
         type: uuid
         required: true
         description: ID of product
-        example: quo
+        example: perferendis
       name:
         name: name
         type: string
@@ -99,38 +100,39 @@ endpoints:
         type: string
         required: true
         description: small description of product.
-        example: id
+        example: rerum
       long_desc:
         name: long_desc
         type: string
         required: true
         description: long description of product
-        example: molestiae
+        example: et
       image:
         name: image
         type: image
         required: true
         description: this is file.
-        example: sit
+        example: explicabo
       status_id:
         name: status_id
         type: uuid
         required: true
         description: ''
-        example: ea
+        example: atque
     responses:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": [
+                  "long description must have atleast 20 letters"
+              ],
               "data": null,
               "error": "Bad Request Error is occured"
           }
@@ -151,24 +153,41 @@ endpoints:
         type: uuid
         required: false
         description: ''
-        example: minima
+        example: ipsam
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: '/product/delete/:productID'
@@ -184,7 +203,7 @@ endpoints:
     urlParameters:
       productID:
         name: productID
-        example: neque
+        example: dolorum
         required: true
         type: string
         description: ''
@@ -192,20 +211,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /product/getAll
@@ -222,20 +258,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /product/addPriceQuantity
@@ -256,46 +309,63 @@ endpoints:
         type: uuid
         required: true
         description: ''
-        example: provident
+        example: quasi
       product_id:
         name: product_id
         type: uuid
         required: true
         description: ''
-        example: quibusdam
+        example: itaque
       price:
         name: price
         type: number
         required: true
         description: ''
-        example: 77374
+        example: 67228
       quantity:
         name: quantity
         type: number
         required: true
         description: ''
-        example: 68418
+        example: 87545
       brand:
         name: brand
         type: string
         required: true
         description: ''
-        example: in
+        example: veritatis
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /product/addImages
@@ -316,28 +386,27 @@ endpoints:
         type: uuid
         required: true
         description: ''
-        example: sapiente
+        example: sed
       images:
         name: images
         type: image
         required: true
         description: other images of product
-        example: sunt
+        example: incidunt
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {}
           }
     responseFields: {}
   - uri: /product/updateSpecs
@@ -358,34 +427,51 @@ endpoints:
         type: uuid
         required: true
         description: product seller id
-        example: beatae
+        example: qui
       product_id:
         name: product_id
         type: uuid
         required: true
         description: id of product
-        example: aut
+        example: voluptas
       price:
         name: price
         type: number
         required: true
         description: new price of product
-        example: 84557
+        example: 50992
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /product/filter
@@ -405,13 +491,13 @@ endpoints:
         type: string
         required: false
         description: Category's Name
-        example: natus
+        example: quas
       seller:
         name: seller
         type: string
         required: false
         description: name of seller brand
-        example: aut
+        example: qui
       sortBy:
         name: sortBy
         type: string
@@ -423,32 +509,31 @@ endpoints:
         type: number
         required: false
         description: ''
-        example: 10483
+        example: 14838
       maxPrice:
         name: maxPrice
         type: number
         required: false
         description: ''
-        example: 10676
+        example: 32781
       limit:
         name: limit
         type: number
         required: false
         description: ''
-        example: 14048
+        example: 58883
       page:
         name: page
         type: number
         required: false
         description: ''
-        example: 2755
+        example: 462
     bodyParameters: {}
     responses:
       - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
@@ -458,23 +543,23 @@ endpoints:
               "message": "Internal server error",
               "data": null,
               "error": {
-                  "name": "SequelizeDatabaseError",
+                  "name": "SequelizeConnectionRefusedError",
                   "parent": {
-                      "code": "ER_BAD_FIELD_ERROR",
-                      "errno": 1054,
-                      "sqlState": "42S22",
-                      "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
-                      "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
                   },
                   "original": {
-                      "code": "ER_BAD_FIELD_ERROR",
-                      "errno": 1054,
-                      "sqlState": "42S22",
-                      "sqlMessage": "Unknown column 'ProductCategories.category_id' in 'on clause'",
-                      "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';"
-                  },
-                  "sql": "SELECT `Product`.*, `ProductPriceBySellers`.`id` AS `ProductPriceBySellers.id`, `ProductPriceBySellers`.`price` AS `ProductPriceBySellers.price`, `ProductPriceBySellers`.`brand` AS `ProductPriceBySellers.brand` FROM (SELECT `Product`.`id`, `Product`.`product_code`, `Product`.`name`, `Product`.`image`, `Product`.`small_desc`, `Product`.`long_desc`, `Product`.`slug`, `Product`.`status_id`, `Product`.`createdAt`, `Product`.`updatedAt` FROM `Products` AS `Product` INNER JOIN `Categories` AS `ProductCategories->Category` ON `ProductCategories`.`category_id` = `ProductCategories->Category`.`id` AND `ProductCategories->Category`.`slug` = 'natus' WHERE ( SELECT `ProductCategories`.`product_id` FROM `ProductCategories` AS `ProductCategories` INNER JOIN `Categories` AS `Category` ON `ProductCategories`.`category_id` = `Category`.`id` AND `Category`.`slug` = 'natus' WHERE (`ProductCategories`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL AND ( SELECT `product_id` FROM `ProductPriceBySellers` AS `ProductPriceBySellers` WHERE (((`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut') AND `ProductPriceBySellers`.`product_id` = `Product`.`id`) LIMIT 1 ) IS NOT NULL LIMIT 38688192, 14048) AS `Product` INNER JOIN `ProductCategories` AS `ProductCategories` ON `Product`.`id` = `ProductCategories`.`product_id` INNER JOIN `ProductPriceBySellers` AS `ProductPriceBySellers` ON `Product`.`id` = `ProductPriceBySellers`.`product_id` AND (`ProductPriceBySellers`.`price` >= '10483' AND `ProductPriceBySellers`.`price` <= '10676') AND `ProductPriceBySellers`.`brand` = 'aut';",
-                  "parameters": {}
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
               }
           }
     responseFields: {}
@@ -495,8 +580,7 @@ endpoints:
       - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
@@ -525,22 +609,39 @@ endpoints:
         type: string
         required: false
         description: searching word
-        example: corporis
+        example: dolores
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "suggestions",
-              "data": [],
-              "error": null
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}

@@ -9,7 +9,6 @@ class AddressController {
   addAdress = async (req, res) => {
     try {
       const { title, line1, line2, city, pincode } = req.body;
-
       const prepareData = {
         title: title,
         line1: line1,

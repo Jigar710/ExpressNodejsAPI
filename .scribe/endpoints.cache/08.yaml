@@ -20,50 +20,52 @@ endpoints:
         type: uuid
         required: true
         description: Id of user
-        example: maiores
+        example: quia
       quantity:
         name: quantity
         type: number
         required: false
         description: quantity of product
-        example: 23835
+        example: 6400
       weight:
         name: weight
         type: number
         required: false
         description: weight of product
-        example: 31913
+        example: 44279
       color:
         name: color
         type: string
         required: false
         description: color of product
-        example: veritatis
+        example: qui
       size:
         name: size
         type: string
         required: false
         description: size of product
-        example: cupiditate
+        example: soluta
       productSellerId:
         name: productSellerId
         type: uuid
         required: false
         description: id of product_seller
-        example: non
+        example: in
     responses:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": [
+                  "please enter proper uuid of productSellerId",
+                  "\"userId\" is not allowed"
+              ],
               "data": null,
               "error": "Bad Request Error is occured"
           }

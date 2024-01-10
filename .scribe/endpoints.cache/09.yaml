@@ -14,208 +14,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "successfully getting all the users",
-              "data": {
-                  "count": 13,
-                  "currentPage": 1,
-                  "totalPage": 1,
-                  "paginatedData": [
-                      {
-                          "id": "17dce47f-6cdb-449c-be7f-b0970cb92530",
-                          "first_name": "dhruvik",
-                          "last_name": "kava",
-                          "email": "fsf@gmail.com",
-                          "password": "$2a$10$dhNFTLKnzgfdpxfJdzVjne/kWz23I1loEG4BWPhR85IPG84iBNMPm",
-                          "username": "dhruvik12345",
-                          "mobile_no": "9123213123133",
-                          "otp": null,
-                          "photo": "photo-1655182093930-120990809.png",
-                          "status": 1,
-                          "createdAt": "2022-06-14T04:48:14.000Z",
-                          "updatedAt": "2022-06-14T04:48:14.000Z"
-                      },
-                      {
-                          "id": "3d5b11c1-7df8-49f8-adf9-05842dbb7f37",
-                          "first_name": "ABCDE",
-                          "last_name": "ADSDA",
-                          "email": "sdsa@gmail.com",
-                          "password": "$2a$10$/KO.R8/nlKxIrca2FoLgAeu2QacOEHtqLk9rtVE3zaqVrae9dVYvu",
-                          "username": "abcde123",
-                          "mobile_no": "9112221212312",
-                          "otp": null,
-                          "photo": "photo-1655705715301-593585669.png",
-                          "status": 1,
-                          "createdAt": "2022-06-20T06:15:15.000Z",
-                          "updatedAt": "2022-06-20T06:15:15.000Z"
-                      },
-                      {
-                          "id": "6ccad26b-032f-4702-9502-5f7521ee2a4c",
-                          "first_name": "ram",
-                          "last_name": "ram",
-                          "email": "ram@gmail.com",
-                          "password": "$2a$10$orv1uqHEx36D1nmf3CAFh.vcUzFZzLSdcvSuJjG7RoOqzPUH.3wf.",
-                          "username": "ram123",
-                          "mobile_no": "1234567890122",
-                          "otp": null,
-                          "photo": "photo-1655367021163-44083047.png",
-                          "status": 1,
-                          "createdAt": "2022-06-16T08:10:21.000Z",
-                          "updatedAt": "2022-06-16T08:10:21.000Z"
-                      },
-                      {
-                          "id": "7b7363db-0367-4346-8f97-d24a4761ecc8",
-                          "first_name": "Jigar",
-                          "last_name": "Shekhat",
-                          "email": "jigar556@gmail.com",
-                          "password": "$2a$10$5Jv4vG4S3C6ex1ygdYMF3uPcV64W6J6kQJv1sD1rxws1AoxrrHet2",
-                          "username": "jigar123",
-                          "mobile_no": "+918000711887",
-                          "otp": null,
-                          "photo": "photo-1655364036366-984417777.png",
-                          "status": 1,
-                          "createdAt": "2022-06-16T07:20:36.000Z",
-                          "updatedAt": "2022-06-16T07:20:36.000Z"
-                      },
-                      {
-                          "id": "7d2db527-0916-42ea-92ef-5ec3eca77146",
-                          "first_name": "dhruvik",
-                          "last_name": "kava",
-                          "email": "dpk@gmail.com",
-                          "password": "$2a$10$pYWX6IO5SbKILYTwOLEVi.kl9qcR3V.CxW6o7kx4X4Z9wmmYPHakK",
-                          "username": "dhruvik123",
-                          "mobile_no": "9123456789012",
-                          "otp": null,
-                          "photo": "photo-1655191333730-508793628.png",
-                          "status": 1,
-                          "createdAt": "2022-06-14T07:22:13.000Z",
-                          "updatedAt": "2022-06-14T07:22:13.000Z"
-                      },
-                      {
-                          "id": "8494b84f-6ffe-45e9-8089-a96d366ffc1d",
-                          "first_name": "ramesh",
-                          "last_name": "sharma",
-                          "email": "dsa@gmail.com",
-                          "password": "$2a$10$a0A5NjeeGnQ6mEQo7ed5ju8Q5TXyVqnLrKLgaFM5Y4hmuPlbUKGiu",
-                          "username": "ramesh123",
-                          "mobile_no": "9121121233244",
-                          "otp": null,
-                          "photo": "photo-1655182396521-104780101.png",
-                          "status": 1,
-                          "createdAt": "2022-06-14T04:53:16.000Z",
-                          "updatedAt": "2022-06-14T04:53:16.000Z"
-                      },
-                      {
-                          "id": "893f433f-1922-443e-b7d0-39dc57e88a30",
-                          "first_name": "Jigar",
-                          "last_name": "Shekhat",
-                          "email": "testemail",
-                          "password": "$2a$10$Ll8A1TXNo5qXQJeNVY43v.XzT03.zgmzOlGY7QlfAY0P1jADbpJ2u",
-                          "username": "testusername",
-                          "mobile_no": "+918000711872",
-                          "otp": 7977,
-                          "photo": "photo-1655117867756-70835719.png",
-                          "status": 1,
-                          "createdAt": "2022-06-13T10:57:47.000Z",
-                          "updatedAt": "2022-06-21T10:00:51.000Z"
-                      },
-                      {
-                          "id": "ad9eb665-0ec5-4b89-b93c-6af38aaf69b6",
-                          "first_name": "dhruvik",
-                          "last_name": "kava",
-                          "email": "dj@gmail.com",
-                          "password": "$2a$10$XprKVYYl2fwbs.zNvXdFX.N.u0wt3V.NjCGZ8J8CD6wcn0DzHhHc2",
-                          "username": "dpk123",
-                          "mobile_no": "",
-                          "otp": null,
-                          "photo": "photo-1655117946034-709105317.png",
-                          "status": 1,
-                          "createdAt": "2022-06-13T10:59:06.000Z",
-                          "updatedAt": "2022-06-13T10:59:06.000Z"
-                      },
-                      {
-                          "id": "b1b783fa-f4ab-4181-b488-3f5b71a9e403",
-                          "first_name": "Jigar",
-                          "last_name": "Shekhat",
-                          "email": "jigar222@gmail.com",
-                          "password": "$2a$10$QXNhdaW/1guD0g5WRgdjzuHRpzHnh4jJ1A0WhKYCGoKp3JFGqq.Gq",
-                          "username": "admin123",
-                          "mobile_no": "+918000711876",
-                          "otp": null,
-                          "photo": "photo-1655286305465-916674635.png",
-                          "status": 1,
-                          "createdAt": "2022-06-15T09:45:05.000Z",
-                          "updatedAt": "2022-06-15T09:45:05.000Z"
-                      },
-                      {
-                          "id": "b245f83c-2472-4200-a2bf-cf1b95ddbc3b",
-                          "first_name": "ramesh",
-                          "last_name": "dsasd",
-                          "email": "sds@gmail.com",
-                          "password": "$2a$10$spckwIyCX/gIgg108YkUfOaZFY3Qlxw9ab/XkoFau3mX2MEhdnstO",
-                          "username": "ramesh1234",
-                          "mobile_no": "9123322322322",
-                          "otp": null,
-                          "photo": "photo-1655284916273-678056955.png",
-                          "status": 1,
-                          "createdAt": "2022-06-15T09:21:56.000Z",
-                          "updatedAt": "2022-06-15T09:21:56.000Z"
-                      },
-                      {
-                          "id": "c1a833ff-b90d-4f65-b122-c1f29d06c15f",
-                          "first_name": "abcd",
-                          "last_name": "saassa",
-                          "email": "sd@gmail.com",
-                          "password": "$2a$10$6m68U4v9LTsxKLd4e0Ige.iqxmZviOWzOll0SyE2d2.1/d97T.5Me",
-                          "username": "abcd123",
-                          "mobile_no": "9123232132237",
-                          "otp": null,
-                          "photo": "photo-1655191874460-575794688.png",
-                          "status": 1,
-                          "createdAt": "2022-06-14T07:31:14.000Z",
-                          "updatedAt": "2022-06-14T07:31:14.000Z"
-                      },
-                      {
-                          "id": "cb583f85-6002-4b82-a9e6-0cf4e433a460",
-                          "first_name": "xyz",
-                          "last_name": "xyz",
-                          "email": "xyz@gmail.com",
-                          "password": "$2a$10$fD1UdooJfQboDT7mi.pffuJky2mM24uT4zD2EGc3g.hWgwUqUoNt6",
-                          "username": "xyz",
-                          "mobile_no": "9180008711889",
-                          "otp": null,
-                          "photo": "photo-1655363245693-142362136.png",
-                          "status": 1,
-                          "createdAt": "2022-06-16T07:07:25.000Z",
-                          "updatedAt": "2022-06-16T07:07:25.000Z"
-                      },
-                      {
-                          "id": "e3bf4920-6976-4c4d-b371-a82436adabb4",
-                          "first_name": "abcde",
-                          "last_name": "sda",
-                          "email": "df@gmail.com",
-                          "password": "$2a$10$LMKP7JfWjbc97.Nai90yPeWNIVGt9YLVx6e2IohY5zxc9SRpxWaD6",
-                          "username": "abcd1234",
-                          "mobile_no": "9112345678902",
-                          "otp": null,
-                          "photo": "photo-1655363734913-170322714.png",
-                          "status": 1,
-                          "createdAt": "2022-06-16T07:15:35.000Z",
-                          "updatedAt": "2022-06-16T07:15:35.000Z"
-                      }
-                  ]
-              },
-              "error": null
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: '/address/delete/:addressId'
@@ -229,7 +58,7 @@ endpoints:
     urlParameters:
       addressId:
         name: addressId
-        example: possimus
+        example: placeat
         required: true
         type: string
         description: The ID of the address.
@@ -237,20 +66,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /address/edit
@@ -265,20 +111,19 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {}
           }
     responseFields: {}
   - uri: /address/getAll
@@ -293,20 +138,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /cart/buy
@@ -321,20 +183,18 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
-              "data": null,
-              "error": "Bad Request Error is occured"
+              "message": "Internal server error",
+              "data": null
           }
     responseFields: {}
   - uri: '/cart/delete/:cartId'
@@ -348,7 +208,7 @@ endpoints:
     urlParameters:
       cartId:
         name: cartId
-        example: est
+        example: vel
         required: true
         type: string
         description: The ID of the cart.
@@ -356,20 +216,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /cart/get
@@ -384,20 +261,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /order/cart
@@ -412,20 +306,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: '/order/track/:orderId'
@@ -439,7 +350,7 @@ endpoints:
     urlParameters:
       orderId:
         name: orderId
-        example: aut
+        example: perspiciatis
         required: true
         type: string
         description: The ID of the order.
@@ -447,20 +358,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /payments/create
@@ -478,15 +406,19 @@ endpoints:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": [
+                  "Card holder name is required",
+                  "Card number is required",
+                  "cvv is required",
+                  "expire date is required"
+              ],
               "data": null,
               "error": "Bad Request Error is occured"
           }
@@ -506,15 +438,19 @@ endpoints:
       - status: 200
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
               "statusCode": 400,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": [
+                  "Card holder name is required",
+                  "Card number is required",
+                  "cvv is required",
+                  "expire date is required"
+              ],
               "data": null,
               "error": "Bad Request Error is occured"
           }
@@ -530,7 +466,7 @@ endpoints:
     urlParameters:
       paymentCardId:
         name: paymentCardId
-        example: sit
+        example: pariatur
         required: true
         type: string
         description: The ID of the payment card.
@@ -538,20 +474,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /payments/get
@@ -566,20 +519,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /coupon/add
@@ -597,8 +567,7 @@ endpoints:
       - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
@@ -617,11 +586,11 @@ endpoints:
                           "value": null,
                           "origin": "CORE",
                           "instance": {
-                              "id": "93f3c122-a08c-4582-8ac0-66d0600813e6",
-                              "redeem_code": "7q4mdh77p1p6lqprykgz",
-                              "expire_date": "2022-06-21T10:00:52.868Z",
-                              "updatedAt": "2022-06-21T10:00:52.870Z",
-                              "createdAt": "2022-06-21T10:00:52.870Z"
+                              "id": "008f320a-5aad-46d3-80a4-59fc9873d81d",
+                              "redeem_code": "5kstyrs11niy4lip9lxt",
+                              "expire_date": "2022-06-30T05:48:22.792Z",
+                              "updatedAt": "2022-06-30T05:48:22.793Z",
+                              "createdAt": "2022-06-30T05:48:22.793Z"
                           },
                           "validatorKey": "is_null",
                           "validatorName": null,
@@ -646,8 +615,7 @@ endpoints:
       - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
@@ -670,7 +638,7 @@ endpoints:
     urlParameters:
       couponId:
         name: couponId
-        example: et
+        example: non
         required: true
         type: string
         description: The ID of the coupon.
@@ -678,20 +646,37 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "coupon is not exist",
+              "message": "Internal server error",
               "data": null,
-              "error": "Bad Request Error is occured"
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}
   - uri: /coupon/getAll
@@ -706,181 +691,81 @@ endpoints:
     queryParameters: {}
     bodyParameters: {}
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 200,
-              "isSuccess": true,
-              "message": "successfully getting data",
-              "data": {
-                  "count": 13,
-                  "currentPage": 1,
-                  "totalPage": 1,
-                  "paginatedData": [
-                      {
-                          "id": "4c2b5a61-8120-414a-8e3a-3c564188a204",
-                          "redeem_code": "t2lflxzk9dwrmmfyqv7k",
-                          "name": "10% Cashback on sell any electronics",
-                          "percentage": 10,
-                          "discount": 0,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T07:30:43.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T07:30:43.000Z",
-                          "updatedAt": "2022-06-21T07:30:43.000Z"
-                      },
-                      {
-                          "id": "50b8ecbe-8854-4898-b760-33f38dd36e8a",
-                          "redeem_code": "79ba09nd11e3xqpy3n7j",
-                          "name": "10Rs Cashback on HDFC collect",
-                          "percentage": 0,
-                          "discount": 10,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T07:28:45.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T07:28:45.000Z",
-                          "updatedAt": "2022-06-21T07:28:45.000Z"
-                      },
-                      {
-                          "id": "5b8d94ad-5371-4607-9d2c-1987782f676c",
-                          "redeem_code": "plmxcc284zit49jz97j0",
-                          "name": "100Rs on all activate sells",
-                          "percentage": 0,
-                          "discount": 100,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T07:31:25.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T07:31:25.000Z",
-                          "updatedAt": "2022-06-21T07:31:25.000Z"
-                      },
-                      {
-                          "id": "6673204b-0422-4c57-a3a3-0b559bf37978",
-                          "redeem_code": "1o7o3hjz948bozs5js3j",
-                          "name": "Rs 20 on sell product by BOB credit card",
-                          "percentage": 0,
-                          "discount": 20,
-                          "term_condition": "nition for the mat-table. Captures the templat",
-                          "expire_date": "2022-06-21T09:47:42.000Z",
-                          "status": 1,
-                          "createdAt": "2022-06-21T09:47:42.000Z",
-                          "updatedAt": "2022-06-21T09:47:42.000Z"
-                      },
-                      {
-                          "id": "71cf04df-2a88-4335-b151-67b113fba76a",
-                          "redeem_code": "sl4qgwpihnik1egpyafc",
-                          "name": "50 Rs. cashback",
-                          "percentage": 0,
-                          "discount": 50,
-                          "term_condition": "this coupon can be used for only for all user",
-                          "expire_date": "2022-07-11T06:00:44.000Z",
-                          "status": 2,
-                          "createdAt": "2022-06-21T06:00:44.000Z",
-                          "updatedAt": "2022-06-21T06:00:44.000Z"
-                      },
-                      {
-                          "id": "7f6a54d5-3966-4eea-9e34-24173efac616",
-                          "redeem_code": "vbzt38cpot7lqqlr0qu9",
-                          "name": "Flat 50% cashback on sell Fruits",
-                          "percentage": 50,
-                          "discount": 0,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T07:28:03.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T07:28:03.000Z",
-                          "updatedAt": "2022-06-21T07:28:03.000Z"
-                      },
-                      {
-                          "id": "8384bde5-2de1-46aa-8cf2-d5f6575bb4cf",
-                          "redeem_code": "o0q0l87k1ryqsiflxy9b",
-                          "name": "10% off on HDFC credit card",
-                          "percentage": 10,
-                          "discount": 0,
-                          "term_condition": "this coupon can be used for only for all user",
-                          "expire_date": "2022-07-11T06:00:13.000Z",
-                          "status": 1,
-                          "createdAt": "2022-06-21T06:00:13.000Z",
-                          "updatedAt": "2022-06-21T06:00:13.000Z"
-                      },
-                      {
-                          "id": "84342032-c4ec-4ac5-88a6-5bd5fc20910e",
-                          "redeem_code": "ls2wsukk2dmb3w9kxiqz",
-                          "name": "500Rs cashback on SBI debit card",
-                          "percentage": 0,
-                          "discount": 500,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T07:29:31.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T07:29:31.000Z",
-                          "updatedAt": "2022-06-21T07:29:31.000Z"
-                      },
-                      {
-                          "id": "98a5b98d-6536-4f61-9963-a07eba833f9f",
-                          "redeem_code": "70atv14xup77kx0lipop",
-                          "name": "sdas",
-                          "percentage": 12,
-                          "discount": 0,
-                          "term_condition": "weqwew",
-                          "expire_date": "2022-06-21T09:01:48.000Z",
-                          "status": 0,
-                          "createdAt": "2022-06-21T09:01:48.000Z",
-                          "updatedAt": "2022-06-21T09:01:48.000Z"
-                      },
-                      {
-                          "id": "b96fae59-8a2a-421c-9fc3-c7dd376dd8e5",
-                          "redeem_code": "rlyrnqj6nn416oiyf3tf",
-                          "name": "5% off on UPI",
-                          "percentage": 5,
-                          "discount": 0,
-                          "term_condition": "inition for the mat-table. Captures the templat",
-                          "expire_date": "2022-06-21T09:50:13.000Z",
-                          "status": 3,
-                          "createdAt": "2022-06-21T09:50:13.000Z",
-                          "updatedAt": "2022-06-21T09:50:13.000Z"
-                      },
-                      {
-                          "id": "c7448d42-9b26-49f4-9c3a-52d606e597d8",
-                          "redeem_code": "u070gpig4nwv1egbximi",
-                          "name": "flat $20 on each product",
-                          "percentage": 20,
-                          "discount": 0,
-                          "term_condition": "We can access the order query parameter like this:",
-                          "expire_date": "2022-06-21T09:20:11.000Z",
-                          "status": 3,
-                          "createdAt": "2022-06-21T09:20:11.000Z",
-                          "updatedAt": "2022-06-21T09:20:11.000Z"
-                      },
-                      {
-                          "id": "d61421b1-d8d2-47f5-a685-89fa2b1353f1",
-                          "redeem_code": "2phggiicbbwgkfdhpidx",
-                          "name": "200 off on ICIC credit card",
-                          "percentage": 0,
-                          "discount": 200,
-                          "term_condition": "this coupon can be used for only for all user",
-                          "expire_date": "2022-07-11T05:59:52.000Z",
-                          "status": 1,
-                          "createdAt": "2022-06-21T05:59:52.000Z",
-                          "updatedAt": "2022-06-21T05:59:52.000Z"
-                      },
-                      {
-                          "id": "e94b7a1b-a1e5-421f-9c2e-43943335ef94",
-                          "redeem_code": "55ecpvxu8kzhwpw3fnd4",
-                          "name": "20% disc on sell dress",
-                          "percentage": 20,
-                          "discount": 0,
-                          "term_condition": "That's the right way to use the element, you must have",
-                          "expire_date": "2022-06-21T09:04:54.000Z",
-                          "status": 1,
-                          "createdAt": "2022-06-21T09:04:54.000Z",
-                          "updatedAt": "2022-06-21T09:04:54.000Z"
-                      }
-                  ]
-              },
-              "error": null
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
+          }
+    responseFields: {}
+  - uri: /coupon/get
+    httpMethods:
+      - GET
+    metadata:
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: {}
+    queryParameters: {}
+    bodyParameters: {}
+    responses:
+      - status: 500
+        description: ''
+        headers:
+          access-control-allow-origin: '*'
+          content-type: application/json; charset=utf-8
+        content: |-
+          {
+              "status": "ok",
+              "statusCode": 500,
+              "isSuccess": false,
+              "message": "Internal server error",
+              "data": null,
+              "error": {
+                  "name": "SequelizeConnectionRefusedError",
+                  "parent": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  },
+                  "original": {
+                      "errno": -4078,
+                      "code": "ECONNREFUSED",
+                      "syscall": "connect",
+                      "address": "127.0.0.1",
+                      "port": 3306,
+                      "fatal": true
+                  }
+              }
           }
     responseFields: {}

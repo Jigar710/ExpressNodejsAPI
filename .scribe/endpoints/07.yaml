@@ -24,13 +24,13 @@ endpoints:
         type: string
         required: true
         description: line 1 of address
-        example: incidunt
+        example: illo
       city:
         name: city
         type: string
         required: false
         description: city of this address
-        example: laboriosam
+        example: odit
       pincode:
         name: pincode
         type: number
@@ -42,21 +42,19 @@ endpoints:
         type: uuid
         required: true
         description: Id of user
-        example: a
+        example: minus
     responses:
-      - status: 200
+      - status: 500
         description: ''
         headers:
-          access-control-allow-origin: 'http://localhost:4200'
-          vary: Origin
+          access-control-allow-origin: '*'
           content-type: application/json; charset=utf-8
         content: |-
           {
               "status": "ok",
-              "statusCode": 400,
+              "statusCode": 500,
               "isSuccess": false,
-              "message": "Please login first",
-              "data": null,
-              "error": "Bad Request Error is occured"
+              "message": "Internal server error",
+              "data": null
           }
     responseFields: {}

@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {}
-    toJSON() {
-      // hide protected fields
-      let attributes = Object.assign({}, this.get());
-      for (let a of PROTECTED_ATTRIBUTES) {
-        delete attributes[a];
-      }
-      return attributes;
-    }
+    // toJSON() {
+    //   // hide protected fields
+    //   let attributes = Object.assign({}, this.get());
+    //   for (let a of PROTECTED_ATTRIBUTES) {
+    //     delete attributes[a];
+    //   }
+    //   return attributes;
+    // }
   }
   User.init(
     {
@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       username: DataTypes.STRING,
-      mobile_no: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        unique: true,
-      },
+      // mobile_no: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true,
+      //   unique: true,
+      // },
       otp: {
         type: DataTypes.INTEGER,
         unique: true,
